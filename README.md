@@ -1,5 +1,5 @@
 <a href=""><p align="center">
-<img height=100 src="https://github.com/GarretTomlin/Budgeting-web-app-monorepo/blob/main/docs/logo.svg"/>
+<img height=100 src="https://github.com/GarretTomlin/crimestop-analytics-backend/blob/main/src/docs/logo.png"/>
 <p align="center">
   <strong>Solving the ongoing problem of crime and public safety</strong>
 </p>
