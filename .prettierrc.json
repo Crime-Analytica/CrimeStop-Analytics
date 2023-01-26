@@ -1,0 +1,12 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "printWidth": 80,
+    "proseWrap": "always",
+    "tabWidth": 4,
+    "editor.formatOnSave": true
+}
