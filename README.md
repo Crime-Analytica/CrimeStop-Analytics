@@ -1,7 +1,7 @@
 <a href=""><p align="center">
 <img height=100 src="https://github.com/GarretTomlin/crimestop-analytics-backend/blob/main/src/docs/logo.png"/>
 <p align="center">
-  <strong>Solving the ongoing problem of crime and public safety</strong>
+  <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
 
 ---
@@ -14,37 +14,38 @@ My motivation for taking up this project is to provide a new and innovative solu
 
 -   [NodeJS](https://nodejs.org)
 -   [Express](https://expressjs.com)
--   [Prisma](https://www.prisma.io/)
+-   [React Native](https://www.prisma.io/)
+-   [Next Js](https://www.prisma.io/)
+-   [Python](https://www.prisma.io/)
 
 
 
-## Getting Started
 
-Clone the project from github 
+## Structure
 
-### Prerequisites
+| Codebase               |      Description          |
+| :--------------------  | :-----------------------: |
+| [backend](backend)     |   Node Js API             |
+| [frontend](frontend)   |   Next.js frontend        |
+| [desktop](desktop)     |   Electron Wrapper        |
+| [mobile](mobile)       |   React Native App        |
+| [fcModel](fcModel)     |   Python facial recognition service|
 
--   postgres container running
--   `.env` updated with the environment variables needed by TOMI.
-- ```docker compose up```
 
-### Installation
+## CrimeStop Analytics Desktop
 
-Once the project is downloaded cd into the directory
+A desktop app built with [Electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux.
 
-```
-npm i nx && npm install
-```
+There are different ways to get the Electron desktop app:
 
-Once all dependencies are installed
 
-```
-nx serve frontend 
-nx serve api
-```
+## How to run locally
+
+Check <a href="">here</a> on how to run locally</a>
 
 ## Technical Stuffs
-| Tech Design                                         | Style Guide                                                                                          | ERD Diagrams   | 
-| :---:                                                 |     :---:                                                                                            |    :---:   |
-| [Tech Design](https://docs.google.com/document/d/1E_qgjhhpzNrEbQMEISoT0qrTQT2D5_ncMBQpo2F8dPs/edit?usp=sharing)                                     | [Style Guide](https://github.com/GarretTomlin/Budgeting-web-app-monorepo/blob/main/STYLE_GUIDE.md)    | [TOMI ERD](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G10kC-nlMRxPI7KZhsDxwkEXpSfCWZ9Vm4)  |
+
+|   Technical Documents |      Style guides         |
+| :-------------------- | :-----------------------: |
+| [TechDesign]()        |   [Style Guide]()         |
 
