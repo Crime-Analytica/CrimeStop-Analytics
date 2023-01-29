@@ -61,7 +61,7 @@ const Login = () => {
                     Read our <a href="#" className="underline">terms</a> and <a href="#" className="underline">conditions</a>
                 </p>
             </div>
-            <div className="p-5 bg-white md:flex-1">
+            <div className="p-5 bg-[#fff] md:flex-1">
                 <div className="p-5 bg-white md:flex-1">
                     <h3 className="my-4 text-2xl font-semibold text-gray-700">Account Login</h3>
                     <form action="http://localhost:80/api/sign-in" method="POST" className="flex flex-col space-y-5 z-10 mid:w-2/3" >

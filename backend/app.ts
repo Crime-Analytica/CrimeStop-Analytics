@@ -4,7 +4,6 @@ import passport from 'passport'
 import bodyParser from 'body-parser'
 import logger from 'morgan'
 import { PrismaClient } from '@prisma/client'
-import dotenv from 'dotenv'
 import cors from 'cors'
 import healthCheck from './src/controllers/healthCheckController'
 import errorHandler from './src/middleware/errorHandler'
@@ -17,7 +16,6 @@ import { logInfo, logError } from './src/services/loggerManager'
 import stayAlertRouter from './src/routers/stayAlertRouter'
 
 const prisma = new PrismaClient()
-dotenv.config()
 
 const app = express()
 const port = Number(process.env.PORT) | 80

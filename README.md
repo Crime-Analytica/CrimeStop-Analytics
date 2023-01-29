@@ -10,15 +10,6 @@
 
 My motivation for taking up this project is to provide a new and innovative solution to the ongoing problem of crime and public safety in Jamaica, like many other countries, Jamaica is facing a rising crime rate that has left citizens feeling helpless. Traditional methods of identifying and tracking criminals have limitations and I believe that by using image recognition and other cutting-edge technologies, this project can make a meaningful impact on public safety
 
-### Built With
-
--   [NodeJS](https://nodejs.org)
--   [Express](https://expressjs.com)
--   [React Native](https://www.prisma.io/)
--   [Next Js](https://www.prisma.io/)
--   [Python](https://www.prisma.io/)
-
-
 
 
 ## Structure
@@ -31,6 +22,12 @@ My motivation for taking up this project is to provide a new and innovative solu
 | [mobile](mobile)       |   React Native App        |
 | [fcModel](fcModel)     |   Python facial recognition service|
 
+
+## Contributions
+
+CrimeStop-analytics is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
+
+Please read [CONTRIBUTING.md]() for details on this project.
 
 ## CrimeStop Analytics Desktop
 

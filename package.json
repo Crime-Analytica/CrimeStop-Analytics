@@ -1,7 +1,12 @@
 {
     "private": true,
     "name": "crimestop-analytics",
-    "workspaces": ["backend", "frontend","mobile"],
-    "scripts": {}
- }
- 
+    "workspaces": [
+        "backend",
+        "frontend",
+        "mobile"
+    ],
+    "scripts": {},
+    "dependencies": {
+    }
+}
