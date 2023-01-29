@@ -49,6 +49,10 @@ A desktop app built with [Electron](https://www.electronjs.org/) is available fo
 There are different ways to get the Electron desktop app:
 
 
+## Code of Conduct
+
+Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct.
+
 ## How to run locally
 
 Check <a href="">here</a> on how to run locally</a>
