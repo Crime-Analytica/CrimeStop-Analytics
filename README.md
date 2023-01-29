@@ -10,6 +10,19 @@
 
 My motivation for taking up this project is to provide a new and innovative solution to the ongoing problem of crime and public safety in Jamaica, like many other countries, Jamaica is facing a rising crime rate that has left citizens feeling helpless. Traditional methods of identifying and tracking criminals have limitations and I believe that by using image recognition and other cutting-edge technologies, this project can make a meaningful impact on public safety
 
+## Current Features
+
+- [x] Authentication
+- [x] CrimeStats          -  Show statistics of different crime in each parish
+- [x] Forum
+- [x] Admin               -  section for the police departments
+- [x] Panic               -  send a distress signal 
+- [x] Report              -  report an crime 
+- [x] missingPerson       -  add a missing person
+- [x] Facial Recognitions
+
+
+
 
 
 ## Structure
