@@ -11,9 +11,12 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "daisyui": "^2.49.0",
     "electron-serve": "^1.1.0",
-    "electron-store": "^8.1.0"
+    "electron-store": "^8.1.0",
+    "react-spring": "^9.6.1",
+    "recharts": "^2.3.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

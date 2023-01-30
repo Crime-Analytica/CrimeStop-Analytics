@@ -50,7 +50,7 @@ const Login = () => {
       
         <div
         className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:w-2/4 lg:max-w-screen-xl mt-0 mb-0 ml-0">          <div
-                className="p-4 py-6 text-[#fff] bg-[#e01e37] md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:w-2/1 md:justify-evenly mt-0 mb-0 ml-0">
+                className="p-4 py-6 text-[#fff] bg-[#8b0000] md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:w-2/1 md:justify-evenly mt-0 mb-0 ml-0">
                
                 <div className="my-3 text-4xl font-bold tracking-wider text-center">
 
@@ -68,9 +68,9 @@ const Login = () => {
                     Read our <a href="#" className="underline">terms</a> and <a href="#" className="underline">conditions</a>
                 </p>
             </div>
-            <div className="p-5 bg-[#FBFBFB] md:flex-1">
+            <div className="p-5 bg-[#1e1e1e] md:flex-1">
                 <div className="p-5 bg-white md:flex-1">
-                    <h3 className="my-4 text-2xl font-semibold text-[#334155]">Account Login</h3>
+                    <h3 className="my-4 text-2xl font-semibold text-[#fff]">Account Login</h3>
                     {error && <div className="error texr-2xl text-[red]">{error}</div>}
 
                     <form onSubmit={handleSubmit} className="flex flex-col space-y-5 z-10 mid:w-2/3" >
@@ -111,7 +111,7 @@ const Login = () => {
                       <div>
                         <button
                           type="submit"
-                          className="w-full px-4 py-2 text-lg font-semibold text-[#fff] transition-colors duration-300 bg-[#e01e37] rounded-md shadow hover:bg-red-600 focus:outline-none focus:ring-red-200 focus:ring-4"
+                          className="w-full px-4 py-2 text-lg font-semibold text-[#fff] transition-colors duration-300 bg-[#8b0000] rounded-md shadow hover:bg-red-600 focus:outline-none focus:ring-red-200 focus:ring-4"
                           id="login-form">
                           Log in
                         </button>
@@ -129,7 +129,7 @@ const Login = () => {
                           >
                             <span>
                               <svg
-                                className="w-5 h-5 text-[#1F2A38] fill-current group-hover:text-[#fff]"
+                                className="w-5 h-5 text-[#fff] fill-current group-hover:text-[#fff]"
                                 viewBox="0 0 16 16"
                                 version="1.1"
                                 aria-hidden="true"
@@ -137,18 +137,18 @@ const Login = () => {
                                 <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"></path>
                               </svg>
                             </span>
-                            <span className="text-sm font-medium text-[#1F2A38] group-hover:text-[#fff]">Google</span>
+                            <span className="text-sm font-medium text-[#fff] group-hover:text-[#fff]">Google</span>
                           </a>
                           <a
                             href="#"
                             className="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-[#1F2A38] rounded-md group hover:bg-[#1F2A38] focus:outline-none"
                           >
                             <span>
-                              <svg className="text-[#1F2A38] group-hover:text-[#fff]" width="20" height="20" fill="currentColor">
+                              <svg className="text-[#fff] group-hover:text-[#fff]" width="20" height="20" fill="currentColor">
                               <path d="M7.462 0H0v7.19h7.462V0zM16 0H8.538v7.19H16V0zM7.462 8.211H0V16h7.462V8.211zm8.538 0H8.538V16H16V8.211z"/>
                               </svg>
                             </span>
-                            <span className="text-sm font-medium  text-[#1F2A38] group-hover:text-[#fff]">Microsoft</span>
+                            <span className="text-sm font-medium  text-[#fff] group-hover:text-[#fff]">Microsoft</span>
                           </a>
                         </div>
                       </div>
