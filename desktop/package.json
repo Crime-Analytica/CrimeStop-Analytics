@@ -1,9 +1,9 @@
 {
   "private": true,
-  "name": "my-nextron-app",
+  "name": "cra",
   "description": "My application description",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "Garret Tomlin",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
@@ -15,6 +15,7 @@
     "daisyui": "^2.49.0",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.1.0",
+    "jwt-decode": "^3.1.2",
     "react-spring": "^9.6.1",
     "recharts": "^2.3.2"
   },

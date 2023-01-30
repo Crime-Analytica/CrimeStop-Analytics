@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-const { useState } = React
+const { useState, useEffect} = React
 import  { useSpring, animated, config} from 'react-spring';
 import { LineChart,
   Line,
@@ -9,10 +9,14 @@ import { LineChart,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer, } from 'recharts'
-
+  import jwt_decode from 'jwt-decode';
+  
 const map = (value, sMin, sMax, dMin, dMax) => {
   return dMin + ((value - sMin) / (sMax - sMin)) * (dMax - dMin);
 };
+
+
+
 const pi = Math.PI;
 const tau = 2 * pi;
 
@@ -49,10 +53,10 @@ const employeeData = [
 ];
 
 const Countrydata = [
-  { name: 'USA', rise: true, value: 21942.83, id: 1 },
-  { name: 'Ireland', rise: false, value: 19710.0, id: 2 },
-  { name: 'Ukraine', rise: false, value: 12320.3, id: 3 },
-  { name: 'Sweden', rise: true, value: 9725.0, id: 4 },
+  { name: 'St Catherine', rise: true, value: 21942.83, id: 1 },
+  { name: 'Kingston', rise: false, value: 19710.0, id: 2 },
+  { name: 'Clarendon', rise: false, value: 12320.3, id: 3 },
+  { name: 'Portmore', rise: true, value: 9725.0, id: 4 },
 ];
 const segmentationData = [
   { c1: 'Not Specified', c2: '800', c3: '#363636', color: '#535353' },
@@ -97,6 +101,7 @@ const graphData = [
 });
 
 const Home = () => {
+
   const [showSidebar, onSetShowSidebar] = useState(false);
   return (
     <div className="flex">
@@ -133,16 +138,11 @@ function Sidebar({ onSidebarHide, showSidebar }) {
     >
       <div className="flex-shrink-0 overflow-hidden p-2">
         <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 sidebar-separator-top">
-          <IconButton icon="res-react-dash-logo" className="w-10 h-10" />
+          <img src="images/logo.svg" className="w-10 h-10"/>
           <div className="block sm:hidden xl:block ml-2 font-bold text-xl text-white">
             CRA
           </div>
-          <div className="flex-grow sm:hidden xl:block" />
-          <IconButton
-            icon="res-react-dash-sidebar-close"
-            className="block sm:hidden"
-            onClick={onSidebarHide}
-          />
+          <div className="flex-grow sm:hidden xl:block"   onClick={onSidebarHide} />
         </div>
       </div>
       <div className="flex-grow overflow-x-hidden overflow-y-auto flex flex-col">
@@ -288,8 +288,24 @@ function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
   );
 }
 function Content({ onSidebarHide }) {
+  const [username, setUsername] = useState('');
+
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const decodedToken = jwt_decode(token);
+    setUsername(decodedToken.username);
+  }
+
+}, []);
+const currentDate = new Date(Date.now());
+const dateString = currentDate.toLocaleDateString('default', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
   return (
-    <div className="flex w-full">
+    <div className="flex w-full bg-[#1e1e1e]">
       <div className="w-full h-screen hidden sm:block sm:w-20 xl:w-60 flex-shrink-0">
         .
       </div>
@@ -298,7 +314,7 @@ function Content({ onSidebarHide }) {
           <div className="sm:flex-grow flex justify-between">
             <div className="">
               <div className="flex items-center">
-                <div className="text-3xl font-bold text-white">Hello David</div>
+                <div className="text-3xl font-bold text-[#fff]">welcome {username}</div>
                 <div className="flex items-center p-2 bg-card ml-2 rounded-xl">
                   <Icon path="res-react-dash-premium-star" />
                 </div>
@@ -308,7 +324,7 @@ function Content({ onSidebarHide }) {
                   path="res-react-dash-date-indicator"
                   className="w-3 h-3"
                 />
-                <div className="ml-2">October 26</div>
+                <div className="ml-2">{dateString}</div>
               </div>
             </div>
             <IconButton
@@ -535,15 +551,13 @@ function TopCountries() {
   return (
     <div className="flex p-4 flex-col h-full">
       <div className="flex justify-between items-center">
-        <div className="text-white font-bold">Top Countries</div>
+        <div className="text-white font-bold">Total Crime</div>
         <Icon path="res-react-dash-plus" className="w-5 h-5" />
       </div>
-      <div className="">favourites</div>
+      <div className="">Parishes</div>
       {Countrydata.map(({ name, rise, value, id }) => (
         <div className="flex items-center mt-3" key={id}>
           <div className="">{id}</div>
-
-          <Image path={`res-react-dash-flag-${id}`} className="ml-2 w-6 h-6" />
           <div className="ml-2">{name}</div>
           <div className="flex-grow" />
           <div className="">{`$${value.toLocaleString()}`}</div>

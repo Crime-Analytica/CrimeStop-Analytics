@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Router from 'next/router'
 
-const Login = () => {
+
+const Register = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -12,6 +14,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    if (!username) {
+        setError("Username is required");
+        return;
+      }
     if (!email) {
       setError("Email is required");
       return;
@@ -21,18 +27,16 @@ const Login = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:80/api/sign-in", {
+      const res = await fetch("http://localhost:80/api/sign-up", {
         method: "POST",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, email, password }),
         headers: { "Content-Type": "application/json" },
       });
-      const data = await res.json();
-      if (data.token) {
-        localStorage.setItem('token', data.token)
-        Router.push('/home')
+      if (res.status === 201) {
+        Router.push('/login')
       } else {
-        // Show an error message
-        console.log("Invalid Credentials");
+        const data = await res.json();
+        setError(data.message);
       }
     } catch (err) {
       console.error(err);
@@ -62,30 +66,47 @@ const Login = () => {
                 </p>
                 <div className="card w-60 h-40 bg-[#1e1e1e] text-[#fff]-content">
   <div className="flex flex-col items-center justify-center  text-center card-body">
-    <p className="mb-30">Don't Have An Account?</p>
+    <p className="mb-30">Already Have An Account ?</p>
     <div className="fix justify-content-center">
 
-<Link href="/register">
-  <button className="btn bg-[#e01e] hover:bg-[#8b0000] text-[#fff]">Register</button>
+<Link href="/login">
+  <button className="btn bg-[#e01e] hover:bg-[#8b0000] text-[#fff]">Login</button>
 </Link>    </div>
   </div>
 </div>
+
+
+
+                {/* <p className="flex flex-col items-center justify-center mt-10 text-center">
+                    <span>Already have an account?</span>
+                    <Link href="/login" className="underline">Get Started!</Link>
+                </p> */}
                 <p className="mt-6 text-sm text-center text-gray-300">
                     Read our <a href="#" className="underline">terms</a> and <a href="#" className="underline">conditions</a>
                 </p>
             </div>
             <div className="p-5 bg-[#1e1e1e] md:flex-1">
                 <div className="p-5 bg-white md:flex-1">
-                    <h3 className="my-4 text-2xl font-semibold text-[#fff]">Account Login</h3>
+                    <h3 className="my-4 text-2xl font-semibold text-[#fff]">Register</h3>
                     {error && <div className="error texr-2xl text-[red]">{error}</div>}
 
                     <form onSubmit={handleSubmit} className="flex flex-col space-y-5 z-10 mid:w-2/3" >
+                    <div className="flex flex-col space-y-1">
+                        <label htmlFor="email" className="text-sm font-semibold text-[#63748E]">Username</label>
+                        <input
+                          type="username"
+                          id="username"
+                          autoFocus
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200 text-[#fff]"
+                        />
+                      </div>
                       <div className="flex flex-col space-y-1">
                         <label htmlFor="email" className="text-sm font-semibold text-[#63748E]">Email address</label>
                         <input
                           type="email"
                           id="email"
-                          autoFocus
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200 text-[#fff]"
@@ -119,13 +140,13 @@ const Login = () => {
                           type="submit"
                           className="w-full px-4 py-2 text-lg font-semibold text-[#fff] transition-colors duration-300 bg-[#8b0000] rounded-md shadow hover:bg-red-600 focus:outline-none focus:ring-red-200 focus:ring-4"
                           id="login-form">
-                          Log in
+                          Register
                         </button>
                       </div>
                       <div className="flex flex-col space-y-5">
                         <span className="flex items-center justify-center space-x-2">
                           <span className="h-px bg-gray-400 w-14"></span>
-                          <span className="font-normal text-[#63748E]">or login with</span>
+                          <span className="font-normal text-[#63748E]">or register with</span>
                           <span className="h-px bg-gray-400 w-14"></span>
                         </span>
                         <div className="flex flex-col space-y-4">
@@ -170,7 +191,9 @@ const Login = () => {
    </div>
       
 </div>
+
   );
+ 
 };
 
-export default Login;
+export default Register;
