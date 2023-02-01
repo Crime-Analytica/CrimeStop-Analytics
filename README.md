@@ -33,7 +33,7 @@ My motivation for taking up this project is to provide a new and innovative solu
 | [frontend](frontend)   |   Next.js frontend        |
 | [desktop](desktop)     |   Electron Wrapper        |
 | [mobile](mobile)       |   React Native App        |
-| [fcModel](fcModel)     |   Python facial recognition service|
+| [fcModel](fcModel)     |   Python facial recognition API|
 
 
 ## Contributions

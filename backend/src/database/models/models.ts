@@ -9,6 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET
 interface User {
   id: string
   email: string
+  username?: string
   role: string | undefined
   badgeNumber?: string
   rank?: string
@@ -114,6 +115,7 @@ export async function generateToken (user: User): Promise<string> {
   if (user.role === 'civilian') {
     payload = {
       id: user.id,
+      username: user.username,
       email: user.email,
       createdAt: new Date(),
       role: user.role
