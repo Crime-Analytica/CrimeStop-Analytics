@@ -74,13 +74,6 @@ const Register = () => {
 </Link>    </div>
   </div>
 </div>
-
-
-
-                {/* <p className="flex flex-col items-center justify-center mt-10 text-center">
-                    <span>Already have an account?</span>
-                    <Link href="/login" className="underline">Get Started!</Link>
-                </p> */}
                 <p className="mt-6 text-sm text-center text-gray-300">
                     Read our <a href="#" className="underline">terms</a> and <a href="#" className="underline">conditions</a>
                 </p>
@@ -92,7 +85,7 @@ const Register = () => {
 
                     <form onSubmit={handleSubmit} className="flex flex-col space-y-5 z-10 mid:w-2/3" >
                     <div className="flex flex-col space-y-1">
-                        <label htmlFor="email" className="text-sm font-semibold text-[#63748E]">Username</label>
+                        <label htmlFor="email" className="text-sm font-semibold text-[#D3D3D3	]">Username</label>
                         <input
                           type="username"
                           id="username"
@@ -103,7 +96,7 @@ const Register = () => {
                         />
                       </div>
                       <div className="flex flex-col space-y-1">
-                        <label htmlFor="email" className="text-sm font-semibold text-[#63748E]">Email address</label>
+                        <label htmlFor="email" className="text-sm font-semibold text-[#D3D3D3	]">Email address</label>
                         <input
                           type="email"
                           id="email"
@@ -114,8 +107,7 @@ const Register = () => {
                       </div>
                       <div className="flex flex-col space-y-1">
                         <div className="flex items-center justify-between">
-                          <label htmlFor="password" className="text-sm font-semibold text-[#63748E]">Password</label>
-                          <a href="#" className="text-sm text-[#F2A5A8] hover:underline focus:text-[#1E40AE]">Forgot Password?</a>
+                          <label htmlFor="password" className="text-sm font-semibold text-[#D3D3D3	]">Password</label>
                         </div>
                         <input
                           type="password"
@@ -133,7 +125,7 @@ const Register = () => {
                          onChange={() => setRememberMe(!rememberMe)}
                           className="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         />
-                        <label htmlFor="remember" className="text-sm font-semibold text-gray-500">Remember me</label>
+                        <label htmlFor="remember" className="text-sm font-semibold text-[#D3D3D3	]">Remember me</label>
                       </div>
                       <div>
                         <button
