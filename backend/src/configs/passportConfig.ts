@@ -12,7 +12,7 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 const authenticateUser = async (email: string, password: string) => {
   const user = await findUserByEmail(email)
-  if (user == null) throw new BadRequestError('No user with that email')
+  if (user === null) throw new BadRequestError('No user with that email')
   const passwordsMatch = await bcrypt.compare(password, user.password)
   if (!passwordsMatch) throw new BadRequestError('Password incorrect')
   const token = await generateToken(user)
@@ -30,7 +30,7 @@ const initialize = (passport: any) => {
     new JwtStrategy(opts, async (payload: any, done: any) => {
       try {
         const user = await findUserById(payload.id)
-        if (user == null) {
+        if (user === null) {
           return done(null, false)
         }
         return done(null, user)
@@ -42,7 +42,7 @@ const initialize = (passport: any) => {
   passport.serializeUser((user: any) => user.id)
   passport.deserializeUser(async (id: string) => {
     const user = await findUserById(id)
-    if (user == null) throw new Error('user not found')
+    if (user === null) throw new Error('user not found')
     return user
   })
 }

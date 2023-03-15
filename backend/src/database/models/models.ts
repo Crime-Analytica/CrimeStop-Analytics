@@ -68,14 +68,14 @@ export async function findUserByEmail (
       email
     }
   })
-  if (civilian != null) return civilian
+  if (civilian !== null) return civilian
 
   const police = await prisma.police.findUnique({
     where: {
       email
     }
   })
-  if (police != null) return police
+  if (police !== null) return police
   return undefined
 }
 
@@ -85,14 +85,14 @@ export async function findUserById (id: string): Promise<Civilian | Police | und
       id
     }
   })
-  if (civilian != null) return civilian
+  if (civilian !== null) return civilian
 
   const police = await prisma.police.findUnique({
     where: {
       id
     }
   })
-  if (police != null) return police
+  if (police !== null) return police
   return undefined
 }
 
@@ -129,7 +129,7 @@ export async function generateToken (user: User): Promise<string> {
       role: user.role
     }
   }
-  if (JWT_SECRET == null) throw new Error('JWT_SECRET is not defined')
+  if (JWT_SECRET === null) throw new Error('JWT_SECRET is not defined')
   const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' })
   return token
 }

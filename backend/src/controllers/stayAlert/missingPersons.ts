@@ -26,10 +26,10 @@ const getMissingPersons = async (req: Request, res: Response) => {
   console.log('Request Body:', req.body) // Log entire request body
   const { firstName, lastName, lastSeen, age, dateMissing } = req.body
 
-  if (req.file != null) {
+  if (req.file !== null) {
     let imageUrl: string
     const upload = cloudinary.uploader.upload_stream({ folder: 'missing' }, (error: any, result: any) => {
-      if (error != null) {
+      if (error !== null) {
         res.status(400).send({ error: 'Unable to upload image to Cloudinary' })
       } else {
         imageUrl = result.secure_url.toString()
