@@ -58,3 +58,22 @@ Check <a href="">here</a> on how to run locally</a>
 
 ## Support This Project
 [![Support CrimeStop Analytics](https://img.buymeacoffee.com/button-api/?text=Support%20CrimeStop%20Analytics&emoji=&slug=crimeStop&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00)](https://www.buymeacoffee.com/crimeStop)
+
+
+### License
+```
+   Copyright (C) 2022 Garret Tomlin
+
+   Licensed under the Massachusetts Institute of Technology License (the "MIT License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       https://opensource.org/licenses/MIT
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
+  
