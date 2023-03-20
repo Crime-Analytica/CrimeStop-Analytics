@@ -57,7 +57,7 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analy
 Check <a href="">here</a> on how to run locally</a>
 
 ## Support This Project
-[![Support CrimeStop Analytics](https://img.buymeacoffee.com/button-api/?text=Support%20CrimeStop%20Analytics&emoji=&slug=crimeStop&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00)](https://www.buymeacoffee.com/crimeStop)
+[![Support CrimeStop Analytics](<a href="https://www.buymeacoffee.com/crimeStop" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>)](https://www.buymeacoffee.com/crimeStop)
 
 
 ## License
@@ -68,7 +68,7 @@ Check <a href="">here</a> on how to run locally</a>
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       https://opensource.org/licenses/MIT
+      https://opensource.apple.com/apsl/
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
