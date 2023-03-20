@@ -7,8 +7,7 @@
 ---
 
 ## About The Project
-
-My motivation for taking up this project is to provide a new and innovative solution to the ongoing problem of crime and public safety in Jamaica, like many other countries, Jamaica is facing a rising crime rate that has left citizens feeling helpless. Traditional methods of identifying and tracking criminals have limitations and I believe that by using image recognition and other cutting-edge technologies, this project can make a meaningful impact on public safety
+CrimeStop Analytics is a non-profit project aimed at providing innovative solutions to the ongoing problem of crime and public safety in Jamaica. Like many other countries, Jamaica is facing a rising crime rate that has left citizens feeling helpless. Traditional methods of identifying and tracking criminals have limitations and we believe that by using image recognition and other cutting-edge technologies, this project can make a meaningful impact on public safety.
 
 ## Current Features
 
@@ -57,9 +56,5 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analy
 
 Check <a href="">here</a> on how to run locally</a>
 
-## Technical Stuffs
-
-|   Technical Documents |      Style guides         |
-| :-------------------- | :-----------------------: |
-| [TechDesign]()        |   [Style Guide]()         |
-
+## Support This Project
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="crimeStop" data-color="#dc0909" data-emoji=""  data-font="Cookie" data-text="Support CrimeStop Analytics" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
