@@ -5,7 +5,7 @@
 </p>
   <p align="center">
   <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
-
+<a href="https://img.shields.io/github/license/garrettomlin/crimeStop-Analytics?color=AA0000&logoColor=5B5B5B"></a>
 </p>
 
 ---
