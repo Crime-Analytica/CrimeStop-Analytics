@@ -1,10 +1,11 @@
-<a href=""><p align="center">
+  <a href=""><p align="center">
 <img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/docs/logo.png"/>
 <p align="center">
   <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
   <p align="center">
   <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
+
 </p>
 
 ---
@@ -67,11 +68,11 @@ Check <a href="">here</a> on how to run locally</a>
 ```
    Copyright (C) 2022 Garret Tomlin
 
-   Licensed under the Apple Public Source License, Version 2.0 (the "APSL License");
+   Licensed under the Massachusetts Institute of Technology License (the "MIT License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       https://opensource.apple.com/license/apsl/
+       https://opensource.org/licenses/MIT
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
