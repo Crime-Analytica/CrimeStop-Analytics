@@ -60,7 +60,7 @@ Check <a href="">here</a> on how to run locally</a>
 [![Support CrimeStop Analytics](https://img.buymeacoffee.com/button-api/?text=Support%20CrimeStop%20Analytics&emoji=&slug=crimeStop&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00)](https://www.buymeacoffee.com/crimeStop)
 
 
-### License
+## License
 ```
    Copyright (C) 2022 Garret Tomlin
 
