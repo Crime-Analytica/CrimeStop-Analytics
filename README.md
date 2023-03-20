@@ -57,7 +57,7 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analy
 Check <a href="">here</a> on how to run locally</a>
 
 ## Support This Project
-<a href="https://www.buymeacoffee.com/crimeStop" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/crimeStop"><img src="https://img.buymeacoffee.com/button-api/?text=Support CrimeStop Analytics&emoji=&slug=crimeStop&button_colour=dc0909&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" /></a>
 
 
 ## License
