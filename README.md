@@ -4,7 +4,7 @@
   <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
   <p align="center">
-  <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=5865F2&logo=discord&logoColor=white"></a>
+  <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
 </p>
 
 ---
