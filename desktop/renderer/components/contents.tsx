@@ -12,32 +12,29 @@ import AddComponent from "./contents/addComponents";
 const employeeData = [
     {
       id: 1,
-      name: "Esther Howard",
+      name: "Total Crime",
       position: "Sale's manager USA",
       transactions: 3490,
       rise: true,
       tasksCompleted: 3,
-      imgId: 0,
     },
   
     {
       id: 2,
-      name: "Eleanor Pena",
+      name: "Total Crime",
       position: "Sale's manager Europe",
       transactions: 590,
       rise: false,
       tasksCompleted: 5,
-      imgId: 2,
     },
   
     {
       id: 3,
-      name: "Robert Fox",
+      name: "Total Crime",
       position: "Sale's manager Asia",
       transactions: 2600,
       rise: true,
       tasksCompleted: 1,
-      imgId: 3,
     },
   ];
   
@@ -127,10 +124,8 @@ function Content({ onSidebarHide }) {
               transactions,
               rise,
               tasksCompleted,
-              imgId,
             }) => (
               <NameCard
-                imgId={undefined}
                 {...{
                   key: id,
                   id,
@@ -139,7 +134,6 @@ function Content({ onSidebarHide }) {
                   transactionAmount: transactions,
                   rise,
                   tasksCompleted,
-                  img: imgId,
                 }}
               />
             )

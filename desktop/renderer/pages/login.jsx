@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Link from "next/link";
 import Router from "next/router";
+import Store from 'electron-store';
+const store = new Store();
+
 
 const Login = () => {
+   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -27,15 +31,15 @@ const Login = () => {
       });
       const data = await res.json();
       if (data.token) {
-        localStorage.setItem("token", data.token);
+        store.set("token", data.token);
         Router.push("/home");
       } else {
-        // Show an error message
-        console.log("Invalid Credentials");
+        setError("Invalid email or password");
       }
     } catch (err) {
       console.error(err);
-    }
+      setError("An error occurred while trying to sign in");    }
+
   };
 
   return (

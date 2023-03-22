@@ -76,6 +76,8 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
       contextIsolation: false,
       ...options.webPreferences,
     },
+    icon: __dirname + '../../resources/icon.ico'
+
   };
   win = new BrowserWindow(browserOptions);
 

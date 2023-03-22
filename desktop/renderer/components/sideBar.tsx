@@ -1,32 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import router from "next/router";
 import MenuItem from "./menuItem";
 import { useSpring, animated, config } from "react-spring";
 import { Icon } from "./icons/icons";
+import Link from "next/link";
+import jwt_decode from "jwt-decode";
+import Store from 'electron-store';
+const store = new Store();
 
 const sidebarItems = [
     [
-      { id: "0", title: "Dashboard", notifications: false },
-      { id: "1", title: "Overview", notifications: false },
-      { id: "2", title: "Chat", notifications: 6 },
-      { id: "3", title: "Team", notifications: false },
+      { id: "0", title: "Home", notifications: false },
+      { id: "2", title: "Forum", notifications: 6 },
+      { id: "3", title: "Report", notifications: false },
+      { id: "4", title: "Missing", notifications: false },
+      { id: "5", title: "Wanted", notifications: false },
+      { id: "6", title: "Panic", notifications: false },
+      { id: "7", title: "FR", notifications: false },
+
+
+
+
     ],
     [
-      { id: "4", title: "Tasks", notifications: false },
-      { id: "5", title: "Reports", notifications: false },
-      { id: "6", title: "Settings", notifications: false },
+      { id: "8", title: "View Reports", notifications: false },
+      { id: "9", title: "Add Criminals", notifications: false },
+      { id: "10", title: "Distress signal", notifications: false },
     ],
   ];
 
 const handleLogout = () => {
     // Clear the local storage or the session data
-    localStorage.removeItem("token");
+    store.delete("token");
     // Redirect the user to the login page
     router.push("/login");
   };
   
   function SideBar({ onSidebarHide, showSidebar }) {
+    interface Token{
+      role: string;
+      username: string;
+      badge: string;
+    }
+  const token = store.get("token") as string;
+  let decodedToken;
+  if (token) {
+    try {
+      decodedToken = jwt_decode(token) as Token;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  const [role, setRole] = useState(null);
+  
+  useEffect(() => {
+      if (decodedToken) {
+        setRole(decodedToken.role);
+      }
+    }, [token, decodedToken]);
+
+    
     const [selected, setSelected] = useState("0");
     const { dashOffset, indicatorWidth, precentage } = useSpring({
       dashOffset: 26.015,
@@ -70,25 +104,46 @@ const handleLogout = () => {
               />
             </div>
           </div>
-          {sidebarItems[0].map((i) => (
-            <MenuItem
-              key={i.id}
-              item={i}
-              onClick={setSelected}
-              selected={selected}
-            />
-          ))}
-          <div className="mt-8 mb-0 font-bold px-3 block sm:hidden xl:block">
-            SHORTCUTS
-          </div>
-          {sidebarItems[1].map((i) => (
-            <MenuItem
-              key={i.id}
-              item={i}
-              onClick={setSelected}
-              selected={selected}
-            />
-          ))}
+          {sidebarItems[0].map((i) => {
+  const currentUrl = `/features/${i.title.toLowerCase()}`;
+  return (
+    <Link href={currentUrl} as={`/${i.title.toLowerCase()}`} key={i.id}>
+      <a>
+        <MenuItem
+          item={i}
+          onClick={setSelected}
+          selected={selected}
+        />
+      </a>
+    </Link>
+  );
+})}
+
+ {role === 'police-admin' ? (
+    <>
+      <div className="mt-8 mb-0 font-bold px-3 block sm:hidden xl:block">
+        Admin Features
+      </div>
+      {sidebarItems[1].map((i) => {
+  const componentName = i.title.replace(/\s/g, '').toLowerCase();
+  const currentUrl = `/features/admin/${componentName}`;
+  return (
+    <Link href={currentUrl} as={currentUrl} key={i.id}>
+      <a>
+        <MenuItem
+          item={i}
+          onClick={setSelected}
+          selected={selected}
+        />
+      </a>
+    </Link>
+  );
+})}
+
+
+    </>
+  ) : <div><h1></h1></div>}
+
           <div className="flex-grow" />
           <div className="w-full p-3 h-28 hidden sm:block sm:h-20 xl:h-32">
             <div
@@ -178,9 +233,9 @@ const handleLogout = () => {
                 <path
                   className="ml-6"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8m4-9-4-4m4 4-4 4m4-4H9"
                 />
               </svg>

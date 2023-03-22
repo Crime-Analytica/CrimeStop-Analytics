@@ -12,12 +12,12 @@ function TopParishes() {
     return (
       <div className="flex p-4 flex-col h-full">
         <div className="flex justify-between items-center">
-          <div className="text-white font-bold">Total Crime</div>
+          <div className="text-white font-bold text-[#e01e]">Total Crime</div>
           <Icon path="res-react-dash-plus" className="w-5 h-5" />
         </div>
         <div className="">Parishes</div>
         {Countrydata.map(({ name, rise, value, id }) => (
-          <div className="flex items-center mt-3" key={id}>
+          <div className="flex items-center mt-3 text-[#fff]" key={id}>
             <div className="">{id}</div>
             <div className="ml-2">{name}</div>
             <div className="flex-grow" />

@@ -5,7 +5,8 @@
 </p>
   <p align="center">
   <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
-<a href="https://img.shields.io/github/license/garrettomlin/crimeStop-Analytics?color=AA0000&logoColor=5B5B5B"></a>
+<img src="https://img.shields.io/github/license/garrettomlin/crimeStop-Analytics?color=AA0000&logoColor=5B5B5B">
+
 </p>
 
 ---
@@ -56,9 +57,6 @@ There are different ways to get the Electron desktop app:
 
 Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct.
 
-## How to run locally
-
-Check <a href="">here</a> on how to run locally</a>
 
 ## Support This Project
 <a href="https://www.buymeacoffee.com/crimeStop"><img src="https://img.buymeacoffee.com/button-api/?text=Support CrimeStop Analytics&emoji=&slug=crimeStop&button_colour=dc0909&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" /></a>
