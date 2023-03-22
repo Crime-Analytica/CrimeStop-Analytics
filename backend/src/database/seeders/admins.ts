@@ -11,11 +11,12 @@ async function seedAdmins () {
     data: {
       firstName: 'admin',
       lastName: 'admin',
-      email: 'admin9@gmail.com',
+      email: 'admin10@gmail.com',
       password: hashedPassword,
       badgeNumber: '202090',
       rank: 'Inspector',
-      role: 'police-admin'
+      role: 'police-admin',
+      department: 'Old Harbour Police Station'
     }
   })
 }

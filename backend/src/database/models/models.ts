@@ -41,8 +41,33 @@ interface missingPerson {
   age: number
   dateMissing: string
   imageUrl: string
+  civilianId: string
+
+}
+interface Report {
+  id: string
+  reportType: string
+  message: string
+  civilianId: string
+  createdAt: Date
+
 }
 
+interface distressSignal {
+  latitude: number
+  longitude: number
+  message: string
+  civilianId: string
+  createdAt: Date
+
+}
+
+interface Crimnal {
+  firstName: string
+  lastName: string
+  wantedFor: string[]
+  imageUrl: string[]
+}
 export async function createUser (
   username: string,
   email: string,
@@ -96,7 +121,7 @@ export async function findUserById (id: string): Promise<Civilian | Police | und
   return undefined
 }
 
-export async function missingPersons (firstName: string, lastName: string, lastSeen: string, age: number, dateMissing: string, imageUrl: string): Promise<missingPerson> {
+export async function missingPersons (firstName: string, lastName: string, lastSeen: string, age: number, dateMissing: string, imageUrl: string, civilianId: string): Promise<missingPerson> {
   const missingPerson = await prisma.missingPerson.create({
     data: {
       firstName,
@@ -104,10 +129,54 @@ export async function missingPersons (firstName: string, lastName: string, lastS
       lastSeen,
       age,
       dateMissing,
-      imageUrl
+      imageUrl,
+      civilian: {
+        connect: { id: civilianId }
+      }
     }
   })
   return missingPerson
+}
+
+export async function createReport (reportType: string, message: string, civilianId: string): Promise<Report> {
+  const report = await prisma.report.create({
+    data: {
+      reportType,
+      message,
+      createdAt: new Date().toISOString(),
+      civilian: {
+        connect: { id: civilianId }
+      }
+    }
+  })
+  return report
+}
+
+export async function createDistressSignal (latitude: number, longitude: number, message: string, civilianId: string): Promise<distressSignal> {
+  const panic = await prisma.distressSignal.create({
+    data: {
+      latitude,
+      longitude,
+      message,
+      createdAt: new Date().toISOString(),
+      civilian: {
+        connect: { id: civilianId }
+      }
+    }
+  })
+  return panic
+}
+
+export async function addCriminal (firstName: string, lastName: string, wantedFor: string, imageUrl: string): Promise<Crimnal> {
+  const criminal = await prisma.criminal.create({
+    data: {
+      firstName,
+      lastName,
+      wantedFor,
+      imageUrl
+    }
+  })
+  return criminal
 }
 
 export async function generateToken (user: User): Promise<string> {
@@ -130,6 +199,6 @@ export async function generateToken (user: User): Promise<string> {
     }
   }
   if (JWT_SECRET == null) throw new Error('JWT_SECRET is not defined')
-  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' })
+  const token = jwt.sign(payload, JWT_SECRET)
   return token
 }

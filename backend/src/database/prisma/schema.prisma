@@ -17,6 +17,11 @@ model Civilian {
   password  String
   createdAt DateTime @default(now())
   role      String   @default("civilian")
+  reports     Report[]
+  distressSignals DistressSignal[]
+  missingPersons MissingPerson[]
+  forums      Forum[]  @relation("ForumUser")
+  Post Post[]
 
 }
 
@@ -38,6 +43,8 @@ model Police {
   badgeNumber  String
   rank  String
   role  String @default("police-admin")
+  department  String
+  forums      Forum[]  @relation("ForumOwner")
   }
 
 model MissingPerson {
@@ -48,11 +55,51 @@ model MissingPerson {
   lastSeen  String
   dateMissing  String
   imageUrl  String
+  civilian    Civilian @relation(fields: [civilianId], references: [id])
+  civilianId  String
   }
 
 model DistressSignal{
   id   String @default(uuid()) @id
   latitude  Float
   longitude Float
+  message  String
+  createdAt DateTime @default(now())
+  civilian    Civilian @relation(fields: [civilianId], references: [id])
+  civilianId  String
 }
 
+model Report{
+  id String @default(uuid()) @id 
+  reportType String
+  message String
+  createdAt DateTime @default(now())
+  civilian    Civilian @relation(fields: [civilianId], references: [id])
+  civilianId  String
+}
+
+
+
+model Forum {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  owner       Police  @relation("ForumOwner", fields: [ownerId], references: [id])
+  ownerId     String
+  posts       Post[]
+  users       Civilian @relation("ForumUser", fields: [userId], references: [id])
+  userId      String
+}
+
+model Post {
+  id          Int     @id @default(autoincrement())
+  content     String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  forum       Forum   @relation(fields: [forumId], references: [id])
+  forumId     Int
+  author      Civilian @relation(fields: [authorId], references: [id])
+  authorId    String
+}

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import moment from 'moment'
-import { logError } from '../services/loggerManager'
+import BadRequestError from '../errors/badRequestError'
 
 const healthCheck = (req: Request, res: Response) => {
   const healthCheckResponse = {
@@ -17,8 +17,8 @@ const healthCheck = (req: Request, res: Response) => {
         errorMessage = error.message
       } else {
         errorMessage = JSON.stringify(error)
+        throw new BadRequestError(`Call to health check endpoint failed with error '${errorMessage}'`)
       }
-      void logError(`Call to health check endpoint failed with error '${errorMessage}'`)
       healthCheckResponse.message = errorMessage
       return res.status(503).send(healthCheckResponse)
     }

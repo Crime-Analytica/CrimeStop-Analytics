@@ -10,15 +10,16 @@ import errorHandler from './src/middleware/errorHandler'
 import { initialize } from './src/configs/passportConfig'
 import authRouter from './src/routers/authRouter'
 import crimeStatsRouter from './src/routers/crimeStatsRouter'
-// import facialRecognitionRouter from './src/routers/facialRecognitionRouter'
+import dotenv from 'dotenv'
 import forumRouter from './src/routers/forumRouter'
 import { logInfo, logError } from './src/services/loggerManager'
 import stayAlertRouter from './src/routers/stayAlertRouter'
+dotenv.config({ path: '.././backend/.env' })
 
 const prisma = new PrismaClient()
 
 const app = express()
-const port = Number(process.env.PORT) | 80
+const port = 80 | Number(process.env.PORT)
 
 app.use(
   session({
@@ -58,7 +59,6 @@ app.get('/health', healthCheck)
 // Routes
 app.use('/api', authRouter)
 app.use('/api', crimeStatsRouter)
-// app.use('/api', facialRecognitionRouter)
 app.use('/api', forumRouter)
 app.use('/api', stayAlertRouter)
 
