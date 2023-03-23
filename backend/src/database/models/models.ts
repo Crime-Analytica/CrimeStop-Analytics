@@ -1,73 +1,18 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import Civilian from '../../types/civillianType'
+import Police from '../../types/policeType'
+import missingPerson from '../../types/missingPersonType'
+import distressSignal from '../../types/distressSignalType'
+import report from '../../types/reportType'
+import crimnal from '../../types/criminalType'
+import user from '../../types/userType'
 
 const prisma = new PrismaClient()
 
 const JWT_SECRET = process.env.JWT_SECRET
 
-interface User {
-  id: string
-  email: string
-  username?: string
-  role: string | undefined
-  badgeNumber?: string
-  rank?: string
-}
-
-interface Civilian extends User {
-  id: string
-  username: string
-  email: string
-  password: string
-  createdAt: Date
-  role: string
-}
-
-interface Police extends User {
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-  badgeNumber: string
-  rank: string
-  role: string
-}
-
-interface missingPerson {
-  firstName: string
-  lastName: string
-  lastSeen: string
-  age: number
-  dateMissing: string
-  imageUrl: string
-  civilianId: string
-
-}
-interface Report {
-  id: string
-  reportType: string
-  message: string
-  civilianId: string
-  createdAt: Date
-
-}
-
-interface distressSignal {
-  latitude: number
-  longitude: number
-  message: string
-  civilianId: string
-  createdAt: Date
-
-}
-
-interface Crimnal {
-  firstName: string
-  lastName: string
-  wantedFor: string[]
-  imageUrl: string[]
-}
 export async function createUser (
   username: string,
   email: string,
@@ -138,7 +83,7 @@ export async function missingPersons (firstName: string, lastName: string, lastS
   return missingPerson
 }
 
-export async function createReport (reportType: string, message: string, civilianId: string): Promise<Report> {
+export async function createReport (reportType: string, message: string, civilianId: string): Promise<report> {
   const report = await prisma.report.create({
     data: {
       reportType,
@@ -167,7 +112,7 @@ export async function createDistressSignal (latitude: number, longitude: number,
   return panic
 }
 
-export async function addCriminal (firstName: string, lastName: string, wantedFor: string, imageUrl: string): Promise<Crimnal> {
+export async function addCriminal (firstName: string, lastName: string, wantedFor: string, imageUrl: string): Promise<crimnal> {
   const criminal = await prisma.criminal.create({
     data: {
       firstName,
@@ -179,7 +124,7 @@ export async function addCriminal (firstName: string, lastName: string, wantedFo
   return criminal
 }
 
-export async function generateToken (user: User): Promise<string> {
+export async function generateToken (user: user): Promise<string> {
   let payload
   if (user.role === 'civilian') {
     payload = {

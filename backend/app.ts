@@ -14,7 +14,8 @@ import dotenv from 'dotenv'
 import forumRouter from './src/routers/forumRouter'
 import { logInfo, logError } from './src/services/loggerManager'
 import stayAlertRouter from './src/routers/stayAlertRouter'
-dotenv.config({ path: '.././backend/.env' })
+import adminRouter from './src/routers/adminRouter'
+dotenv.config({ path: '.env' })
 
 const prisma = new PrismaClient()
 
@@ -57,6 +58,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // parse URL-encoded request 
 app.get('/health', healthCheck)
 
 // Routes
+app.use('/api', adminRouter)
 app.use('/api', authRouter)
 app.use('/api', crimeStatsRouter)
 app.use('/api', forumRouter)
