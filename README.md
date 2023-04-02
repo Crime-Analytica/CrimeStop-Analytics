@@ -36,8 +36,8 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 | :--------------------  | :-----------------------: |
 | [backend](backend)     |   Node Js API             |
 | [frontend](frontend)   |   Next.js frontend        |
-| [desktop](desktop)     |   Electron Wrapper        |
-| [mobile](mobile)       |   React Native App        |
+| [desktop](cra_frontend)|   Flutter for desktop     |
+| [mobile](cra_frontend) |   Flutter for mobile      |
 | [fcModel](fcModel)     |   Python facial recognition API|
 
 
@@ -49,15 +49,18 @@ Please read [CONTRIBUTING.md]() for details on this project.
 
 ## CrimeStop Analytics Desktop
 
-A desktop app built with [Electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux.
+A desktop app built with [Flutter](https://flutter.dev/multi-platform/desktop) is available for Windows, Mac, and Linux.
 
-There are different ways to get the Electron desktop app:
+There are different ways to get the Flutter desktop app:
 
 
 ## Code of Conduct
 
 Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct.
 
+## Local Set up
+
+Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on how to run locally.
 
 ## Support This Project
 <a href="https://www.buymeacoffee.com/crimeStop"><img src="https://img.buymeacoffee.com/button-api/?text=Support CrimeStop Analytics&emoji=&slug=crimeStop&button_colour=dc0909&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" /></a>
