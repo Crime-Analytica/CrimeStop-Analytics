@@ -4,7 +4,6 @@ import {
   BrowserWindowConstructorOptions,
 } from 'electron';
 import Store from 'electron-store';
-import path from 'path';
 
 export default (windowName: string, options: BrowserWindowConstructorOptions): BrowserWindow => {
   const key = 'window-state';
@@ -76,8 +75,6 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
       contextIsolation: false,
       ...options.webPreferences,
     },
-    icon: __dirname + '../../resources/icon.ico'
-
   };
   win = new BrowserWindow(browserOptions);
 

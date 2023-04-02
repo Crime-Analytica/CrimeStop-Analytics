@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/prefer-optional-chain */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
-import { findUserByEmail, generateToken } from '../../database/models/models'
-import BadRequestError from '../../errors/badRequestError'
+import { findUserByEmail, generateToken } from '../../helpers/userHelpers'
 
 const signIn = async (req: Request, res: Response) => {
   const { email, password } = req.body
@@ -11,7 +8,7 @@ const signIn = async (req: Request, res: Response) => {
   try {
     const user = await findUserByEmail(email)
     if (user === undefined) {
-      throw new BadRequestError('user is undefined')
+      throw new Error('user is undefined')
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password)

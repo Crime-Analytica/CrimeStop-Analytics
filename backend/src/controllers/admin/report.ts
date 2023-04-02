@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client'
+import prisma from '../../utils/prismaInstance'
 import { Request, Response } from 'express'
 
 const getReports = async (req: Request, res: Response) => {
-  const prisma = new PrismaClient()
   const { page } = req.query
   const pageSize = 10
   let skip = 0

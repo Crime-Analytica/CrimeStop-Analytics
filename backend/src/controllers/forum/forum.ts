@@ -1,67 +1,56 @@
-// import { PrismaClient } from '@prisma/client'
+import prisma from '../../utils/prismaInstance'
 import { Request, Response } from 'express'
-// import http from 'http'
-// import { Server } from 'socket.io'
-// import app from '../../../app'
+import { io } from '../../services/socket'
 
-// const server = http.createServer(app)
-// const io = new Server(server)
-// const prisma = new PrismaClient()
+io.on('connection', (socket) => {
+  console.log('A user connected')
 
-const getForum = (_req: Request, res: Response) => {
-  // io.on('connection', (socket) => {
-  //   console.log('a user connected')
+  socket.on('disconnect', () => {
+    console.log('A user disconnected')
+  })
+  socket.on('join-room', async (roomId, userId) => {
+    void socket.join(roomId)
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    console.log(`User ${userId} joined room ${roomId}`)
+    console.log(userId)
 
-  //   socket.on('join_forum', async (forumId) => {
-  //     // Retrieve forum and posts from database
-  //     const forum = await prisma.forum.findUnique({ where: { id: forumId }, include: { posts: true } })
-  //     if (forum == null) {
-  //       socket.emit('error', 'Forum not found')
-  //       return
-  //     }
+    const forum = await prisma.forum.findUnique({ where: { id: roomId } })
+    if (forum == null) {
+      io.to(roomId).emit('room-error', 'Forum not found')
+      return
+    }
 
-  //     // Join the forum room
-  //     socket.join(`forum_${forum.id}`)
+    const civilian = await prisma.civilian.findUnique({ where: { id: userId } })
+    if (civilian == null) {
+      io.to(roomId).emit('room-error', 'Civilian not found')
+      return
+    }
+    socket.on('create-post', async (content) => {
+      console.log(roomId, userId)
+      const post = await prisma.post.create({
+        data: {
+          content,
+          forumId: roomId,
+          authorId: userId
+        },
+        include: {
+          author: true
+        }
+      })
 
-  //     // Send forum data to the client
-  //     socket.emit('forum_data', forum)
+      io.to(roomId).emit('new-post', post)
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      console.log(`post added ${content}`)
+    })
+  })
+})
+const Forum = async (req: Request, res: Response) => {
+  try {
+    const post = await prisma.post.findMany()
+    res.status(200).send(post)
+  } catch (error) {
 
-  //     // Send posts to the client
-  //     socket.emit('posts_data', forum.posts)
-
-  //     console.log(`user joined forum ${forumId}`)
-  //   })
-
-  //   socket.on('leave_forum', (forumId) => {
-  //     // Leave the forum room
-  //     void socket.leave(`forum_${forumId}`)
-
-  //     console.log(`user left forum ${forumId}`)
-  //   })
-
-  //   socket.on('new_post', async ({ forumId, content }) => {
-  //     // Retrieve forum and author from database
-  //     const forum = await prisma.forum.findUnique({ where: { id: forumId } })
-  //     const author = await prisma.civilian.findUnique({ where: { id: socket.userId } })
-  //     if (forum == null || (author == null)) {
-  //       socket.emit('error', 'Forum or author not found')
-  //       return
-  //     }
-
-  //     // Create new post and add it to the forum
-  //     const post = await prisma.post.create({ data: { content, author: { connect: { id: author.id } }, forum: { connect: { id: forum.id } } } })
-  //     forum.posts.push(post)
-
-  //     // Send new post to all clients in the forum room
-  //     io.to(`forum_${forumId}`).emit('new_post', post)
-
-  //     console.log(`new post in forum ${forumId}`)
-  //   })
-
-  //   socket.on('disconnect', () => {
-  //     console.log('a user disconnected')
-  //   })
-  // })
+  }
 }
 
-export default getForum
+export default Forum

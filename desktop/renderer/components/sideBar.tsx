@@ -6,8 +6,7 @@ import { useSpring, animated, config } from "react-spring";
 import { Icon } from "./icons/icons";
 import Link from "next/link";
 import jwt_decode from "jwt-decode";
-import Store from 'electron-store';
-const store = new Store();
+
 
 const sidebarItems = [
     [
@@ -24,15 +23,15 @@ const sidebarItems = [
 
     ],
     [
-      { id: "8", title: "View Reports", notifications: false },
-      { id: "9", title: "Add Criminals", notifications: false },
-      { id: "10", title: "Distress signal", notifications: false },
+      { id: "8", title: "ViewReports", notifications: false },
+      { id: "9", title: "AddCriminals", notifications: false },
+      { id: "10", title: "DistressSignal", notifications: false },
     ],
   ];
 
 const handleLogout = () => {
     // Clear the local storage or the session data
-    store.delete("token");
+    localStorage.removeItem("token");
     // Redirect the user to the login page
     router.push("/login");
   };
@@ -43,7 +42,12 @@ const handleLogout = () => {
       username: string;
       badge: string;
     }
-  const token = store.get("token") as string;
+
+    let token
+    if (typeof localStorage !== 'undefined') {
+
+  token = localStorage.getItem("token") as string;
+    }
   let decodedToken;
   if (token) {
     try {
@@ -60,7 +64,7 @@ const handleLogout = () => {
       }
     }, [token, decodedToken]);
 
-    
+  
     const [selected, setSelected] = useState("0");
     const { dashOffset, indicatorWidth, precentage } = useSpring({
       dashOffset: 26.015,
@@ -125,10 +129,9 @@ const handleLogout = () => {
         Admin Features
       </div>
       {sidebarItems[1].map((i) => {
-  const componentName = i.title.replace(/\s/g, '').toLowerCase();
-  const currentUrl = `/features/admin/${componentName}`;
+  const currentUrl = `/features/${i.title.toLowerCase()}`;
   return (
-    <Link href={currentUrl} as={currentUrl} key={i.id}>
+    <Link href={currentUrl} as={`/${i.title.toLowerCase()}`} key={i.id}>
       <a>
         <MenuItem
           item={i}

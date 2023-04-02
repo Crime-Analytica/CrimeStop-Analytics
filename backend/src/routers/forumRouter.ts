@@ -1,8 +1,11 @@
 import { Router } from 'express'
-import getForum from '../controllers/forum/forum'
-import { protectRoute } from '../middleware/protectRoutes'
+import addForum from '../controllers/forum/addForum'
+import Forum from '../controllers/forum/forum'
+// import { protectRoute, CheckRole } from '../middleware/protectRoutes'
 
 const router = Router()
 
-router.get('/forum', protectRoute, getForum)
+router.post('/forum', Forum)
+router.post('/add-forum', addForum)
+
 export default router

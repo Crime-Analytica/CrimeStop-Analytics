@@ -6,7 +6,7 @@ import {
   findUserByEmail,
   findUserById,
   generateToken
-} from '../database/models/models'
+} from '../helpers/userHelpers'
 
 const JWT_SECRET = process.env.JWT_SECRET
 

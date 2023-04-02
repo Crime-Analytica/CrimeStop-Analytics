@@ -15,7 +15,7 @@ const home = () => {
     badge: string;
   }
   useEffect(() => {
-    const token = store.get("token") as string;
+    const token = localStorage.getItem("token") as string;
     if (!token) {
       Router.push("/");
       return;

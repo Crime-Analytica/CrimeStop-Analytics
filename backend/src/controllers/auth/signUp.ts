@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { createUser } from '../../database/models/models'
+import { createUser } from '../../helpers/userHelpers'
 
 const signUp = async (req: Request, res: Response) => {
   const { username, email, password } = req.body

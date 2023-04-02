@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client'
 import { Request, Response } from 'express'
+import prisma from '../../utils/prismaInstance'
 
 const getDistressSignals = async (req: Request, res: Response) => {
-  const prisma = new PrismaClient()
   const { page } = req.query
   const pageSize = 10
   let skip = 0

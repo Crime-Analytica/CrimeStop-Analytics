@@ -1,8 +1,7 @@
 import { useState} from "react";
 import Link from "next/link";
 import Router from "next/router";
-import Store from 'electron-store';
-const store = new Store();
+
 
 
 const Login = () => {
@@ -31,7 +30,7 @@ const Login = () => {
       });
       const data = await res.json();
       if (data.token) {
-        store.set("token", data.token);
+        localStorage.setItem("token", data.token);
         Router.push("/home");
       } else {
         setError("Invalid email or password");
@@ -48,11 +47,11 @@ const Login = () => {
         <div className="relative ">
           <img
             src="images/crime.png"
-            className=" absolute top-0 right-0 h-screen w-[59.9rem] object-cover "
+            className=" absolute top-0 right-0 h-screen w-[61rem] object-cover "
           />
         </div>
         <div className="flex items-left min-h-screen bg-gray-100 lg:float:left">
-          <div className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:w-2/4 lg:max-w-screen-xl mt-0 mb-0 ml-0">
+          <div className="flex flex-col overflow-hidden rounded-md shadow-lg max md:flex-row md:w-2/4 lg:max-w-screen-xl mt-0 mb-0 ml-0">
             {" "}
             <div className="p-4 py-6 text-[#fff] bg-[#8b0000] md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:w-2/1 md:justify-evenly mt-0 mb-0 ml-0">
               <div className="my-3 text-4xl font-bold tracking-wider text-center">
@@ -87,7 +86,7 @@ const Login = () => {
               </p>
             </div>
             <div className="p-5 bg-[#1e1e1e] md:flex-1">
-              <div className="p-5 bg-white md:flex-1">
+              <div className="p-5 md:flex-1">
                 <h3 className="my-4 text-2xl font-semibold text-[#fff]">
                   Account Login
                 </h3>
@@ -135,7 +134,7 @@ const Login = () => {
                       id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="px-4 py-2 transition duration-300 border border-white-100 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200 text-[#fff]"
+                      className="px-4 py-2 transition duration-300 border  rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200 text-[#fff]"
                     />
                   </div>
                   <div className="flex items-center space-x-2">

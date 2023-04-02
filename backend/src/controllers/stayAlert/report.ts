@@ -1,6 +1,5 @@
-// import { PrismaClient } from '@prisma/client'
 import { Request, Response } from 'express'
-import { createReport } from '../../database/models/models'
+import { createReport } from '../../helpers/reportHelpers'
 
 const sendReport = async (req: Request, res: Response) => {
   const { reportType, message, civilianId } = req.body

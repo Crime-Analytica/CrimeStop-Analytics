@@ -48,7 +48,7 @@ const Register = () => {
        
     <div className="relative">
         <div className="relative ">
-            <img src="images/crime.png" className=" absolute top-0 right-0 h-screen w-[59.9rem] object-cover "/>
+            <img src="images/crime.png" className=" absolute top-0 right-0 h-screen w-[61rem] object-cover "/>
           </div>
     <div className="flex items-left min-h-screen bg-gray-100 lg:float:left">
       
@@ -78,8 +78,8 @@ const Register = () => {
                     Read our <a href="#" className="underline">terms</a> and <a href="#" className="underline">conditions</a>
                 </p>
             </div>
-            <div className="p-5 bg-[#1e1e1e] md:flex-1">
-                <div className="p-5 bg-white md:flex-1">
+            <div className="p-5 bg-[#1e1e1e] md:flex-1 ">
+                <div className="p-5 md:flex-1">
                     <h3 className="my-4 text-2xl font-semibold text-[#fff]">Register</h3>
                     {error && <div className="error texr-2xl text-[red]">{error}</div>}
 

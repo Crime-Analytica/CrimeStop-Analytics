@@ -2,25 +2,31 @@ import express, { json } from 'express'
 import session from 'express-session'
 import passport from 'passport'
 import bodyParser from 'body-parser'
+import http from 'http'
 import logger from 'morgan'
-import { PrismaClient } from '@prisma/client'
+import swaggerUi from 'swagger-ui-express'
+import { swaggerDocument } from './src/configs/swagger/swagger'
 import cors from 'cors'
 import healthCheck from './src/controllers/healthCheckController'
 import errorHandler from './src/middleware/errorHandler'
 import { initialize } from './src/configs/passportConfig'
+import prisma from './src/utils/prismaInstance'
 import authRouter from './src/routers/authRouter'
 import crimeStatsRouter from './src/routers/crimeStatsRouter'
 import dotenv from 'dotenv'
 import forumRouter from './src/routers/forumRouter'
-import { logInfo, logError } from './src/services/loggerManager'
 import stayAlertRouter from './src/routers/stayAlertRouter'
 import adminRouter from './src/routers/adminRouter'
+import { initializeSocket } from './src/services/socket'
+import { logInfo } from './src/services/loggerManager'
+
 dotenv.config({ path: '.env' })
 
-const prisma = new PrismaClient()
-
 const app = express()
-const port = 80 | Number(process.env.PORT)
+const server = http.createServer(app)
+
+const port = Number(process.env.PORT) ?? 4000
+app.set('port', isNaN(port) || port === 0 ? 8080 : port)
 
 app.use(
   session({
@@ -30,18 +36,8 @@ app.use(
   })
 )
 
-async function checkConnection () {
-  try {
-    await prisma.$connect()
-    void logInfo('Connected to the database!')
-  } catch (error: any) {
-    void logError(error.toString())
-  }
-}
-checkConnection()
-  .catch((error) => {
-    void logError(error.toString())
-  })
+// socket.io
+initializeSocket(server)
 
 // Passport
 initialize(passport)
@@ -53,6 +49,9 @@ app.use(logger('dev'))
 app.use(json({ limit: '2560kb' }))
 app.use(bodyParser.json()) // parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true })) // parse URL-encoded request bodies
+
+// api documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // Healthcheck
 app.get('/health', healthCheck)
@@ -72,8 +71,15 @@ app.use((req, res) => {
 // Error handler
 app.use(errorHandler)
 
-app.listen(port, () => {
-  console.log(`Server ready at http://localhost:${port}`)
-})
+prisma.$connect()
+  .then(() => {
+    server.listen(port, () => {
+      void logInfo(`Server ready at http://localhost:${port}`)
+    })
+  })
+  .catch((error) => {
+    console.error(error)
+    process.exit(1)
+  })
 
 export default app

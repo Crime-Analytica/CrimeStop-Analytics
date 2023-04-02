@@ -11,18 +11,16 @@ datasource db {
 }
 
 model Civilian {
-  id        String   @default(uuid()) @id
-  username  String    @unique
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  role      String   @default("civilian")
-  reports     Report[]
+  id              String           @default(uuid()) @id
+  username        String           @unique
+  email           String           @unique
+  password        String
+  createdAt       DateTime         @default(now())
+  role            String           @default("civilian")
+  reports         Report[]
   distressSignals DistressSignal[]
-  missingPersons MissingPerson[]
-  forums      Forum[]  @relation("ForumUser")
-  Post Post[]
-
+  missingPersons  MissingPerson[]
+  Post            Post[]
 }
 
 model Criminal {
@@ -79,7 +77,6 @@ model Report{
 }
 
 
-
 model Forum {
   id          Int     @id @default(autoincrement())
   title       String
@@ -88,9 +85,7 @@ model Forum {
   updated_at  DateTime @updatedAt
   owner       Police  @relation("ForumOwner", fields: [ownerId], references: [id])
   ownerId     String
-  posts       Post[]
-  users       Civilian @relation("ForumUser", fields: [userId], references: [id])
-  userId      String
+  posts       Post[]  @relation("ForumPosts")
 }
 
 model Post {
@@ -98,7 +93,7 @@ model Post {
   content     String
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
-  forum       Forum   @relation(fields: [forumId], references: [id])
+  forum       Forum   @relation("ForumPosts", fields: [forumId], references: [id])
   forumId     Int
   author      Civilian @relation(fields: [authorId], references: [id])
   authorId    String
