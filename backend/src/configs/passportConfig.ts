@@ -1,7 +1,6 @@
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import bcrypt from 'bcrypt'
-import BadRequestError from '../errors/badRequestError'
 import {
   findUserByEmail,
   findUserById,
@@ -12,9 +11,9 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 const authenticateUser = async (email: string, password: string) => {
   const user = await findUserByEmail(email)
-  if (user == null) throw new BadRequestError('No user with that email')
+  if (user == null) throw new Error('No user with that email')
   const passwordsMatch = await bcrypt.compare(password, user.password)
-  if (!passwordsMatch) throw new BadRequestError('Password incorrect')
+  if (!passwordsMatch) throw new Error('Password incorrect')
   const token = await generateToken(user)
   return { user, token }
 }

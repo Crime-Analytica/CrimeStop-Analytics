@@ -43,12 +43,12 @@ initializeSocket(server)
 initialize(passport)
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(cors())
 
+app.use(cors())
 app.use(logger('dev'))
 app.use(json({ limit: '2560kb' }))
-app.use(bodyParser.json()) // parse JSON request bodies
-app.use(bodyParser.urlencoded({ extended: true })) // parse URL-encoded request bodies
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // api documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
@@ -82,4 +82,4 @@ prisma.$connect()
     process.exit(1)
   })
 
-export default app
+export default server

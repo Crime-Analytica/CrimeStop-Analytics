@@ -3,10 +3,11 @@
     "name": "crimestop-analytics",
     "workspaces": [
         "backend",
-        "frontend",
         "mobile"
     ],
-    "scripts": {},
+    "scripts": {
+        "start": "ts-node-dev ../../backend/app.ts"
+    },
     "dependencies": {
         "next-electron-server": "^1.0.0",
         "zod": "^3.21.4"

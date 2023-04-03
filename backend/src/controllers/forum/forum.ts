@@ -1,6 +1,11 @@
 import prisma from '../../utils/prismaInstance'
 import { Request, Response } from 'express'
 import { io } from '../../services/socket'
+// import { Server } from 'socket.io'
+// import server from '../../../app'
+
+// eslint-disable-next-line no-import-assign
+// io = new Server(server, { path: '/socket1' })
 
 io.on('connection', (socket) => {
   console.log('A user connected')
