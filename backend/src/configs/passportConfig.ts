@@ -1,6 +1,7 @@
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import bcrypt from 'bcrypt'
+import user from '../interfaces/userInterface'
 import {
   findUserByEmail,
   findUserById,
@@ -26,7 +27,7 @@ const initialize = (passport: any) => {
   opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
   opts.secretOrKey = JWT_SECRET
   passport.use(
-    new JwtStrategy(opts, async (payload: any, done: any) => {
+    new JwtStrategy(opts, async (payload: { id: string }, done: any) => {
       try {
         const user = await findUserById(payload.id)
         if (user == null) {
@@ -38,7 +39,7 @@ const initialize = (passport: any) => {
       }
     })
   )
-  passport.serializeUser((user: any) => user.id)
+  passport.serializeUser((user: user) => user.id)
   passport.deserializeUser(async (id: string) => {
     const user = await findUserById(id)
     if (user == null) throw new Error('user not found')

@@ -8,11 +8,11 @@ import user from '../interfaces/userInterface'
 
 const JWT_SECRET = process.env.JWT_SECRET
 
-export async function createUser (
+export const createUser = async (
   username: string,
   email: string,
   password: string
-): Promise<Civilian> {
+): Promise<Civilian> => {
   const hashedPassword = await bcrypt.hash(password, 10)
   const user = await prisma.civilian.create({
     data: {
@@ -25,9 +25,9 @@ export async function createUser (
   return user
 }
 
-export async function findUserByEmail (
+export const findUserByEmail = async (
   email: string
-): Promise<Civilian | Police | undefined> {
+): Promise<Civilian | Police | undefined> => {
   const civilian = await prisma.civilian.findUnique({
     where: {
       email
@@ -44,7 +44,7 @@ export async function findUserByEmail (
   return undefined
 }
 
-export async function findUserById (id: string): Promise<Civilian | Police | undefined> {
+export const findUserById = async (id: string): Promise<Civilian | Police | undefined> => {
   const civilian = await prisma.civilian.findUnique({
     where: {
       id
@@ -61,7 +61,7 @@ export async function findUserById (id: string): Promise<Civilian | Police | und
   return undefined
 }
 
-export async function generateToken (user: user): Promise<string> {
+export const generateToken = async (user: user): Promise<string> => {
   let payload
   if (user.role === 'civilian') {
     payload = {

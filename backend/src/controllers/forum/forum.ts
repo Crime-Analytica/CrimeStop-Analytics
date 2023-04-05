@@ -1,6 +1,7 @@
 import prisma from '../../utils/prismaInstance'
 import { Request, Response } from 'express'
 import { io } from '../../services/socket'
+import createPost from '../../helpers/postHelpers'
 // import { Server } from 'socket.io'
 // import server from '../../../app'
 
@@ -32,17 +33,7 @@ io.on('connection', (socket) => {
     }
     socket.on('create-post', async (content) => {
       console.log(roomId, userId)
-      const post = await prisma.post.create({
-        data: {
-          content,
-          forumId: roomId,
-          authorId: userId
-        },
-        include: {
-          author: true
-        }
-      })
-
+      const post = createPost(content, roomId, userId)
       io.to(roomId).emit('new-post', post)
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       console.log(`post added ${content}`)

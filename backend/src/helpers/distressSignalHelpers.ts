@@ -1,7 +1,7 @@
 import prisma from '../utils/prismaInstance'
 import distressSignal from '../interfaces/distressSignalInterface'
 
-export async function createDistressSignal (latitude: number, longitude: number, message: string, civilianId: string): Promise<distressSignal> {
+export const createDistressSignal = async (latitude: number, longitude: number, message: string, civilianId: string): Promise<distressSignal> => {
   const panic = await prisma.distressSignal.create({
     data: {
       latitude,

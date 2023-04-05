@@ -1,17 +1,11 @@
 import prisma from '../utils/prismaInstance'
-
-interface ForumInput {
-  title: string
-  description: string
-  ownerId: string
-}
-
-export async function createForum (forumInput: ForumInput) {
+import Forum from '../interfaces/forumInterface'
+export const createForum = async (title: string, description: string, ownerId: string): Promise<Forum> => {
   const forum = await prisma.forum.create({
     data: {
-      title: forumInput.title,
-      description: forumInput.description,
-      ownerId: forumInput.ownerId
+      title,
+      description,
+      ownerId
     }
   })
 

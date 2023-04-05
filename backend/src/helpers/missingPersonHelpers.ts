@@ -1,7 +1,7 @@
 import prisma from '../utils/prismaInstance'
 import missingPerson from '../interfaces/missingPersonInterface'
 
-export async function missingPersons (firstName: string, lastName: string, age: number, lastSeen: string, dateMissing: string, imageUrl: string, civilianId: string): Promise<missingPerson> {
+export const missingPersons = async (firstName: string, lastName: string, age: number, lastSeen: string, dateMissing: string, imageUrl: string, civilianId: string): Promise<missingPerson> => {
   const missingPerson = await prisma.missingPerson.create({
     data: {
       firstName,
