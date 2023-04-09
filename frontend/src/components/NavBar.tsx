@@ -111,7 +111,7 @@ function NavBar() {
                 <a className="flex text-gray-600 hover:text-blue-500
                     cursor-pointer transition-colors duration-300">
 
-<img src="../../images/github-mark-white.svg" alt="Your Image" className="h-6 w-6" />
+<Image src="../../images/github-mark-white.svg" alt="Your Image" className="h-6 w-6" />
 
 
                 </a>
@@ -119,7 +119,7 @@ function NavBar() {
                 <a className="flex text-gray-600 
                     cursor-pointer transition-colors duration-300
                     font-semibold text-blue-600">
-<img src="../../images/inkedin.svg" alt="Your Image" className="" />
+<Image src="../../images/inkedin.svg" alt="Your Image" className="" />
 
                 </a>
             </div>

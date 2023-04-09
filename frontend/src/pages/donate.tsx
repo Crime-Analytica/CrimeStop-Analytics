@@ -6,6 +6,7 @@ function donate() {
   return (
     <div>
             <NavBar />
+            <h1>coming soon</h1>
             <Footer />
 
     </div>
