@@ -1,0 +1,12 @@
+runtime: python39
+entrypoint: gunicorn -w 4 -b :$PORT app:app
+
+env_variables:
+  DATABASE_URL: ""
+  JWT_SECRET: ""
+  PORT: 8080
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
