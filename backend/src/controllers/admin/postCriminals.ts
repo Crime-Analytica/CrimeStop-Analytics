@@ -4,7 +4,6 @@ import { logError } from '../../services/loggerManager'
 
 const postCriminals = async (req: Request, res: Response) => {
   const { firstName, lastName, wantedFor, imageUrl } = req.body
-  console.log('Request Body:', req.body) // Log entire request body
 
   try {
     const newCriminal = await addCriminal(firstName, lastName, wantedFor, imageUrl)

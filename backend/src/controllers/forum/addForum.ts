@@ -4,7 +4,7 @@ import { createForum } from '../../helpers/forumHelpers'
 const addForum = async (req: Request, res: Response) => {
   try {
     const { title, description, ownerId } = req.body
-    const forum = await createForum({ title, description, ownerId })
+    const forum = await createForum(title, description, ownerId)
     res.json(forum)
   } catch (error) {
     console.error(error)

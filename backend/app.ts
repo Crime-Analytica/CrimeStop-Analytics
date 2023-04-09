@@ -3,6 +3,8 @@ import session from 'express-session'
 import passport from 'passport'
 import bodyParser from 'body-parser'
 import http from 'http'
+import xss from 'xss-clean'
+import helmet from 'helmet'
 import logger from 'morgan'
 import swaggerUi from 'swagger-ui-express'
 import { swaggerDocument } from './src/configs/swagger/swagger'
@@ -19,14 +21,18 @@ import stayAlertRouter from './src/routers/stayAlertRouter'
 import adminRouter from './src/routers/adminRouter'
 import { initializeSocket } from './src/services/socket'
 import { logInfo } from './src/services/loggerManager'
+import limiter from './src/utils/rateLimiting'
+import { createCluster } from './src/services/cluster'
 
 dotenv.config({ path: '.env' })
 
 const app = express()
-const server = http.createServer(app)
+const socket = http.createServer(app)
 
 const port = Number(process.env.PORT) ?? 4000
 app.set('port', isNaN(port) || port === 0 ? 8080 : port)
+
+const server = process.env.server ?? 'GateWay'
 
 app.use(
   session({
@@ -36,8 +42,7 @@ app.use(
   })
 )
 
-// socket.io
-initializeSocket(server)
+initializeSocket(socket)
 
 // Passport
 initialize(passport)
@@ -56,6 +61,20 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 // Healthcheck
 app.get('/health', healthCheck)
 
+// load balancer
+app.get('/', (req, res, next) => {
+  res.send(`This Request redirect to the server ${server}`)
+})
+
+// xss-clean middleware to all routes
+app.use(xss())
+
+// Using helmet middleware
+app.use(helmet())
+
+// Rate limiting
+app.use('/api/', limiter)
+
 // Routes
 app.use('/api', adminRouter)
 app.use('/api', authRouter)
@@ -71,15 +90,20 @@ app.use((req, res) => {
 // Error handler
 app.use(errorHandler)
 
-prisma.$connect()
-  .then(() => {
-    server.listen(port, () => {
-      void logInfo(`Server ready at http://localhost:${port}`)
+const startServer = () => {
+  prisma.$connect()
+    .then(() => {
+      socket.listen(port, () => {
+        void logInfo(`Server ready at http://localhost:${port}`)
+      })
     })
-  })
-  .catch((error) => {
-    console.error(error)
-    process.exit(1)
-  })
+    .catch((error) => {
+      console.error(error)
+      process.exit(1)
+    })
+}
 
-export default server
+// Use cluster
+createCluster(startServer)
+
+export default app

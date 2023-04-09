@@ -1,0 +1,40 @@
+runtime: nodejs14
+
+env_variables:
+  # Replace <DATABASE_URL> with your actual database URL.
+  DATABASE_URL: "<DATABASE_URL>"
+  # Replace <SESSION_SECRET> with your actual session secret.
+  SESSION_SECRET: "<SESSION_SECRET>"
+
+# Optional: Set the service to run on a specific port.
+# If this is not set, App Engine will automatically set a port.
+
+port: 80
+
+# Optional: Use the following settings if your app uses WebSockets.
+network:
+  session_affinity: true
+  forwarded_ports:
+    - "80"
+
+# Optional: Set scaling settings for your app.
+# If this is not set, App Engine will automatically scale your app.
+# See the documentation for more details:
+# https://cloud.google.com/appengine/docs/flexible/nodejs/configuring-your-app-with-app-yaml#scaling_elements
+manual_scaling:
+  instances: 1
+
+# Optional: Set the entrypoint for your app.
+# If this is not set, App Engine will use the default entrypoint.
+entrypoint: node app.ts
+
+# Optional: Set the health check for your app.
+# If this is not set, App Engine will use the default health check.
+# See the documentation for more details:
+# https://cloud.google.com/appengine/docs/flexible/nodejs/configuring-your-app-with-app-yaml#health_checks
+health_check:
+  enable_health_check: true
+  check_interval_sec: 5
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2
