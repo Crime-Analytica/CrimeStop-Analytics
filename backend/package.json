@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.ts",
-  "type": "module",
   "scripts": {
     "start": "ts-node-dev app.ts",
     "test": "jest --watchAll --no-cache",
