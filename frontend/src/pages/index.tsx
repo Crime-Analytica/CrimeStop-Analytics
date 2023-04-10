@@ -3,6 +3,7 @@ import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Feature } from '@/components/Feature';
+import Waitlist from '@/components/Waitlist';
 
 function Home() {
   return (
@@ -36,9 +37,11 @@ function Home() {
           />
         </div>
       </div>
+
       <section className="flex justify-center items-center  h-87rem lg:h-[87rem]">
         <Feature />
       </section>
+      <Waitlist />
       <Footer />
     </div>
   );
