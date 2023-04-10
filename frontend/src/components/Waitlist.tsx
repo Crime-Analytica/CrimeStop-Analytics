@@ -5,11 +5,22 @@ import { addDoc, collection } from 'firebase/firestore'
 function Waitlist() {
   const [email, setEmail] = useState('')
   const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
 
   const handleJoinWaitlist = async () => {
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address')
+      return
+    }
     const db = getFirestoreInstance()
     await addDoc(collection(db, 'waitlist'), { email })
     setSuccess(true)
+  }
+
+  const validateEmail = (email:string) => {
+    // Regular expression to match valid email addresses
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    return regex.test(email)
   }
   return (
     <div className="container mb-16 px-6 mx-auto">
@@ -38,6 +49,7 @@ function Waitlist() {
             <h2 className="text-3xl font-bold mb-6 text-white">Join Our Waitlist</h2>
     
             <p className="text-white mb-12">Our Mobile and Desktop application will launch soon. Join the waitlist to try the beta before it&apos;s publicly available.</p>
+            {error && <p className="text-red-500 mb-2">{error}</p>}
             {success ? (
 <div className="text-lg font-medium text-white mb-6">
                 Thank you for joining our waitlist! We&apos;ll keep you updated.

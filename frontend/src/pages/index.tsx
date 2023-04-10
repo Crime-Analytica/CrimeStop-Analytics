@@ -4,10 +4,19 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Feature } from '@/components/Feature';
 import Waitlist from '@/components/Waitlist';
+import Head from "next/head";
+
 
 function Home() {
   return (
     <div className="bg-[#1e1e1e] top-0 ">
+      <Head>
+        <title>Home | CrimeStop-Analytics</title>
+        <meta name="description" content="A solution to the ongoing problem of crime and public safety" />
+        <meta name="keywords" content="CrimeStop-Analytics, Crime Analysis, CrimeStop, Jamaica" />
+        <meta name="author" content="Garret Tomlin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <NavBar />
       <div className="relative flex flex-col md:flex-row bg-[#1e1e1e] top-0">
         <div className="md:w-1/2 order-2 md:order-1 p-8 md:p-16 lg:p-24 flex flex-col justify-center items-start text-white">
