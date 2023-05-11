@@ -1,21 +1,6 @@
-MIT License
 
-Copyright (c) 2022 Garret Tomlin
+SSPL License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright (c) 2023 Garret Tomlin
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The Server Side Public License (SSPL) version 1 is a licensing restriction applied to an original work of authorship. It grants a royalty-free, worldwide, non-exclusive license to use, execute, reproduce, display, perform, modify, transmit, and distribute the original work. The license requires acceptance and compliance with its terms, including retaining copyright notices and including a copy of the license with distributed copies or derivative works. Modifying the original work is allowed, provided the terms of the license are followed, and appropriate notice is given. The license covers server-side use of the original work and includes a patent license. The original work is provided "AS IS" without warranties, and the licensee assumes any necessary servicing or correction costs. Violation of the license terms results in automatic termination of rights granted. For more detailed information, please refer to the official website of the Server Side Public License at <https://www.mongodb.com/licensing/server-side-public-license>.

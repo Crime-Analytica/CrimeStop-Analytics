@@ -68,13 +68,13 @@ Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytic
 
 ## License
 ```
-   Copyright (C) 2022 Garret Tomlin
+   Copyright (C) 2023 Garret Tomlin
 
-   Licensed under the Massachusetts Institute of Technology License (the "MIT License");
+   Licensed under the Server Side Public License (SSPL);
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       https://opensource.org/licenses/MIT
+       https://www.mongodb.com/licensing/server-side-public-license
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
