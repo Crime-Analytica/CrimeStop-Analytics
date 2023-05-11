@@ -29,6 +29,8 @@ model Criminal {
   lastName String
   wantedFor  String[]
   imageUrl  String[]
+  police    Police@relation(fields: [policeId], references: [id])
+  policeId  String
 }
 
 
@@ -43,6 +45,7 @@ model Police {
   role  String @default("police-admin")
   department  String
   forums      Forum[]  @relation("ForumOwner")
+  criminal Criminal[]
   }
 
 model MissingPerson {

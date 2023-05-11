@@ -1,10 +1,9 @@
-
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import prisma from '../utils/prismaInstance'
 import Civilian from '../interfaces/civillianInterface'
 import Police from '../interfaces/policeInterface'
-import user from '../interfaces/userInterface'
+import User from '../interfaces/userInterface'
 
 const JWT_SECRET = process.env.JWT_SECRET
 
@@ -28,59 +27,49 @@ export const createUser = async (
 export const findUserByEmail = async (
   email: string
 ): Promise<Civilian | Police | undefined> => {
-  const civilian = await prisma.civilian.findUnique({
-    where: {
-      email
-    }
-  })
-  if (civilian != null) return civilian
+  const [civilian, police] = await Promise.all([
+    prisma.civilian.findUnique({ where: { email } }),
+    prisma.police.findUnique({ where: { email } })
+  ])
 
-  const police = await prisma.police.findUnique({
-    where: {
-      email
-    }
-  })
-  if (police != null) return police
-  return undefined
+  return civilian ?? police ?? undefined
 }
 
-export const findUserById = async (id: string): Promise<Civilian | Police | undefined> => {
-  const civilian = await prisma.civilian.findUnique({
-    where: {
-      id
-    }
-  })
-  if (civilian != null) return civilian
+export const findUserById = async (
+  id: string
+): Promise<Civilian | Police | undefined> => {
+  const [civilian, police] = await Promise.all([
+    prisma.civilian.findUnique({ where: { id } }),
+    prisma.police.findUnique({ where: { id } })
+  ])
 
-  const police = await prisma.police.findUnique({
-    where: {
-      id
-    }
-  })
-  if (police != null) return police
-  return undefined
+  return civilian ?? police ?? undefined
 }
 
-export const generateToken = async (user: user): Promise<string> => {
-  let payload
-  if (user.role === 'civilian') {
-    payload = {
-      id: user.id,
-      username: user.username,
-      email: user.email,
-      createdAt: new Date(),
-      role: user.role
-    }
-  } else {
-    payload = {
-      id: user.id,
-      email: user.email,
-      badge: user.badgeNumber,
-      rank: user.rank,
-      role: user.role
-    }
+export const generateToken = async (user: User): Promise<string> => {
+  const payload = {
+    id: user.id,
+    email: user.email,
+    role: user.role,
+    createdAt: new Date(),
+    ...(user.role === 'civilian'
+      ? {
+          username: user.username
+        }
+      : {
+          badge: user.badgeNumber,
+          rank: user.rank
+        })
   }
-  if (JWT_SECRET == null) throw new Error('JWT_SECRET is not defined')
-  const token = jwt.sign(payload, JWT_SECRET)
-  return token
+
+  try {
+    if (JWT_SECRET !== undefined) {
+      const token = jwt.sign(payload, JWT_SECRET)
+      return token
+    }
+  } catch (error) {
+    console.error(error)
+    throw new Error('Unable to generate token')
+  }
+  throw new Error('JWT_SECRET is not defined')
 }

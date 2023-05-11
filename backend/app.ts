@@ -90,7 +90,7 @@ app.use((req, res) => {
 // Error handler
 app.use(errorHandler)
 
-const startServer = () => {
+const startServer = async () => {
   prisma.$connect()
     .then(() => {
       socket.listen(port, () => {
