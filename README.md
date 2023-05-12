@@ -49,7 +49,7 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 
 CrimeStop-analytics is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
-Please read [CONTRIBUTING.md]() for details on this project.
+Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/CONTRIBUTING.md) for details on this project.
 
 ## CrimeStop Analytics Desktop
 
