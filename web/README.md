@@ -11,33 +11,31 @@
 
 </p>
 
----
-
 # What is this folder?
 
-This folder is called VisaVault ([/ˈvɪzəvɔlt/](https://www.merriam-webster.com/dictionary/visage)), it is currently used for our Python Facial Recognition backend written in flask.
+This folder is called web ([/ˈweb/](https://www.merriam-webster.com/dictionary/visage)), it is currently used for our CRA webpage made using next js.
 
 It's live on 👉 [CRA.TECH](https://www.crimestop-analytics.tech/)
 
 # How can I contribute?
 
-**By  using [PIP](https://pypi.org/project/pip/)*
+**By  using [NPM](https://www.npmjs.com/)*
 
-Compile @CRA/VisaVault by executing the following commands:
+Compile @CRA/Web by executing the following commands:
 
 ```bash
-cd ../VisaVault
- docker build -t visavault .
+cd ../web
+ npm install
 
 ```
 
 
-After you successfully compiled VisaVault,
+After you successfully compiled web,
 
-You should now be all set to go, go ahead and run the dev image
+You should now be all set to go, go ahead and run the dev server
 
 ```bash
-cd ../visaVault
+cd ../web
 
-docker run -p 49160:5000 -d visavault
+npm run dev
 ```

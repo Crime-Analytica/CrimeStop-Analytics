@@ -1,5 +1,5 @@
   <a href=""><p align="center">
-<img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/docs/logo.png"/>
+<img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/docs/logo.png"/>
 <p align="center">
   <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
@@ -26,6 +26,10 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 - [x] missingPerson       -  add a missing person
 - [x] Facial Recognitions
 
+## Branches
+
+- staging -> pr this branch for everything
+- prod -> don't touch, this is what's running in prod
 
 
 
@@ -35,17 +39,17 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 | Codebase               |      Description          |
 | :--------------------  | :-----------------------: |
 | [backend](backend)     |   Node Js API             |
-| [frontend](frontend)   |   Next.js frontend        |
+| [web](frontend)   |   Next.js frontend        |
 | [desktop](cra_frontend)|   Flutter for desktop     |
 | [mobile](cra_frontend) |   Flutter for mobile      |
-| [visaVault](fcModel)     |   Python facial recognition API|
+| [visaVault](VisaVault)     |   Python facial recognition API|
 
 
 ## Contributions
 
 CrimeStop-analytics is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
-Please read [CONTRIBUTING.md]() for details on this project.
+Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/CONTRIBUTING.md) for details on this project.
 
 ## CrimeStop Analytics Desktop
 
@@ -57,10 +61,6 @@ There are different ways to get the Flutter desktop app:
 ## Code of Conduct
 
 Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct.
-
-## Local Set up
-
-Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on how to run locally.
 
 ## Support This Project
 <a href="https://www.buymeacoffee.com/crimeStop"><img src="https://img.buymeacoffee.com/button-api/?text=Support CrimeStop Analytics&emoji=&slug=crimeStop&button_colour=dc0909&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" /></a>
