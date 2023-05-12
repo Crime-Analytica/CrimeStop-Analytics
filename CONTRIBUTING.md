@@ -10,7 +10,8 @@
 
 </p>
 
-# SO you want to contribute to this awesome project?
+## Thank you for your interest in contributing to CrimeStop-Analytics! We welcome contributions from the community to help us build a better solution for to combat crime and enhance public safety.
+
 
 
 ## Contributor Roles
