@@ -26,6 +26,10 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 - [x] missingPerson       -  add a missing person
 - [x] Facial Recognitions
 
+## Branches
+
+- staging -> pr this branch for everything
+- prod -> don't touch, this is what's running in prod
 
 
 
