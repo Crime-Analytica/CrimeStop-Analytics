@@ -1,16 +1,12 @@
-# cra_frontend
 
-A new Flutter project.
+  <a href=""><p align="center">
+<img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/docs/logo.png"/>
+<p align="center">
+  <strong>A solution to the ongoing problem of crime and public safety</strong>
+</p>
+  <p align="center">
+  <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
+<img src="https://img.shields.io/github/license/garrettomlin/crimeStop-Analytics?color=AA0000&logoColor=5B5B5B">
+<img src="https://img.shields.io/github/contributors/garrettomlin/CrimeStop-Analytics?color=AA0000">
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+</p>

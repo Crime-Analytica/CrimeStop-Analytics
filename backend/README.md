@@ -1,6 +1,6 @@
 
   <a href=""><p align="center">
-<img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/docs/logo.png"/>
+<img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/docs/logo.png"/>
 <p align="center">
   <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
