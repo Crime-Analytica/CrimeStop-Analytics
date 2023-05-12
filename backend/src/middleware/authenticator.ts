@@ -14,7 +14,7 @@ export const protectRoute = (req: Request, res: Response, next: NextFunction) =>
   })(req, res, next)
 }
 
-export const CheckRole = (req: Request, res: Response, next: NextFunction) => {
+export const checkRole = (req: Request, res: Response, next: NextFunction) => {
   passport.authenticate('jwt', { session: false }, (err: any, user: any) => {
     if (err != null || user != null) {
       return res.status(401).json({
