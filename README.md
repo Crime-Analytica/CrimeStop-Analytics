@@ -38,7 +38,7 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 | [frontend](frontend)   |   Next.js frontend        |
 | [desktop](cra_frontend)|   Flutter for desktop     |
 | [mobile](cra_frontend) |   Flutter for mobile      |
-| [fcModel](fcModel)     |   Python facial recognition API|
+| [visaVault](fcModel)     |   Python facial recognition API|
 
 
 ## Contributions
@@ -49,7 +49,7 @@ Please read [CONTRIBUTING.md]() for details on this project.
 
 ## CrimeStop Analytics Desktop
 
-A desktop app built with [Flutter](https://flutter.dev/multi-platform/desktop) is available for Windows, Mac, and Linux.
+A desktop app built with [Flutter](https://flutter.dev/multi-platform/desktop) is available for Windows, Mac, and Linux(_For Law Enforcement personnel_).
 
 There are different ways to get the Flutter desktop app:
 

@@ -59,9 +59,9 @@ function NavBar() {
 <div className="flex items-center  ml-20">
 <Image src="../../images/icon.svg" className="h-10 object-cover h-14 w-14 z-10" alt={'CRA'} width={14} height={10}/>
   <h3 className="text-2xl font-medium text-[#e01e] ml-4">
-    <a className="cursor-pointer">
+    {/* <a className="cursor-pointer">
       <span className='z-10'>CRA</span>
-    </a>
+    </a> */}
   </h3>
 </div>
 
