@@ -25,7 +25,7 @@ It's live on 👉 [CRA.TECH](https://www.crimestop-analytics.tech/)
 
 Compile @CRA/Backend by executing the following commands:
 
-```docker
+```bash
 cd ../backend
  docker build -t backend .
  docker-compose up -d
@@ -35,7 +35,7 @@ After you successfully compiled the backend, go back to this directory and add a
 
 You should now be all set to go, go ahead and run the dev image
 
-```docker
+```bash
 cd ../backend
 
 DATABASE_URL=
