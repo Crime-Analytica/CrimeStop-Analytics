@@ -10,3 +10,32 @@
 <img src="https://img.shields.io/github/contributors/garrettomlin/CrimeStop-Analytics?color=AA0000">
 
 </p>
+
+# What is this folder?
+
+This folder is called web ([/ˈweb/](https://www.merriam-webster.com/dictionary/visage)), it is currently used for our CRA webpage made using next js.
+
+It's live on 👉 [CRA.TECH](https://www.crimestop-analytics.tech/)
+
+# How can I contribute?
+
+**By  using [NPM](https://www.npmjs.com/)*
+
+Compile @CRA/Web by executing the following commands:
+
+```bash
+cd ../web
+ npm install
+
+```
+
+
+After you successfully compiled web,
+
+You should now be all set to go, go ahead and run the dev server
+
+```bash
+cd ../web
+
+npm run dev
+```

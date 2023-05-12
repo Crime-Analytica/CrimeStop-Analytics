@@ -39,10 +39,10 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 | Codebase               |      Description          |
 | :--------------------  | :-----------------------: |
 | [backend](backend)     |   Node Js API             |
-| [frontend](frontend)   |   Next.js frontend        |
+| [web](frontend)   |   Next.js frontend        |
 | [desktop](cra_frontend)|   Flutter for desktop     |
 | [mobile](cra_frontend) |   Flutter for mobile      |
-| [visaVault](fcModel)     |   Python facial recognition API|
+| [visaVault](VisaVault)     |   Python facial recognition API|
 
 
 ## Contributions
@@ -61,10 +61,6 @@ There are different ways to get the Flutter desktop app:
 ## Code of Conduct
 
 Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct.
-
-## Local Set up
-
-Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on how to run locally.
 
 ## Support This Project
 <a href="https://www.buymeacoffee.com/crimeStop"><img src="https://img.buymeacoffee.com/button-api/?text=Support CrimeStop Analytics&emoji=&slug=crimeStop&button_colour=dc0909&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" /></a>

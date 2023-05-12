@@ -21,24 +21,23 @@ It's live on 👉 [CRA.TECH](https://www.crimestop-analytics.tech/)
 
 # How can I contribute?
 
-**By  using [PIP](https://pypi.org/project/pip//)*
+**By  using [PIP](https://pypi.org/project/pip/)*
 
 Compile @CRA/VisaVault by executing the following commands:
 
 ```bash
 cd ../VisaVault
-pip install -r requirements.txt
-python run.py build
+ docker build -t visavault .
 
 ```
 
 
-After you successfully compiled the backend, go back to this directory and install all modules
+After you successfully compiled VisaVault,
 
-You should now be all set to go, go ahead and run the dev server
+You should now be all set to go, go ahead and run the dev image
 
 ```bash
 cd ../visaVault
 
-python run.py staging
+docker run -p 49160:5000 -d visavault
 ```
