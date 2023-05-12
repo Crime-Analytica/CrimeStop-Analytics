@@ -21,7 +21,7 @@ It's live on 👉 [CRA.TECH](https://www.crimestop-analytics.tech/)
 
 **By  using [NPM](https://www.npmjs.com/)*
 
-Compile @CRA/Web by executing the following commands:
+Compile @CRA/Web by executing the following commands
 
 ```bash
 cd ../web
