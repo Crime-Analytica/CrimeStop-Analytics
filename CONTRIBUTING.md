@@ -29,8 +29,8 @@ We have a few contributor roles available in this project:
 
 | Backend Developer   | Frontend Developer  | Full-stack Developer | UX/UI Designer                              |
 | :------------------ | :-----------------: | ------------------- | ------------------------------------------- |
-| [Python](VisaVault) | [Next.js](web)      | Python<br>Next.js    | [View Design](Rhi0lFiDccEj7WiaDU0oRlCRA-DESIGNtype=design&node-id=0%3A1&t=oIXZ2JmcphM7bhbg-1) |
-| [Node.js](backend)  | [Flutter](cra_frontend) | Node.js<br>Flutter  | Pin me in the discussion for editor permission |
+| [Python](VisaVault) | [Next.js](web)      | [Python](VisaVault)<br>[Next.js](web)   | [View Design](Rhi0lFiDccEj7WiaDU0oRlCRA-DESIGNtype=design&node-id=0%3A1&t=oIXZ2JmcphM7bhbg-1) |
+| [Node.js](backend)  | [Flutter](cra_frontend) | [Node.js](backend)<br>[Flutter](cra_frontend)  | Pin me in the discussion for editor permission |
 
 
 
