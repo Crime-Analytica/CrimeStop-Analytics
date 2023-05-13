@@ -21,15 +21,17 @@ We have a few contributor roles available in this project:
 - **Backend Developer**: Responsible for developing and maintaining the backend logic and API endpoints.
 - **Frontend Developer**: Responsible for developing and maintaining the user interface and frontend components.
 - **Full-stack Developer**: Responsible for both backend and frontend development tasks.
+- **UX/UI Designer**: Responsible for designing the user experience (UX) and user interface (UI) of the application.
 
 ## Setting up the Local Environment(After choosing role)
 
 
 
-|    Backend Developer  | Frontend Developer     | Full-stack Developer |
-| :-------------------- | :--------------------: | --------------------: |
-| [_Python_](VisaVault) |     [_Next js_](web)          |      [_Python_](VisaVault)  [_Next js_](web)   |
-| [_NodeJs_](backend)   |     [_Flutter_](cra_frontend)    |        [_NodeJs_](backend)  [_Flutter_](cra_frontend)  |
+|    Backend Developer  | Frontend Developer     | Full-stack Developer | |UX/UI Designer|
+| :-------------------- | :--------------------: | --------------------:| | --------------------: |
+                                             
+| [_Python_](VisaVault) |     [_Next js_](web)   |[_Python_](VisaVault) [_Next js_](web)   | |[_View Design_]()|
+| [_NodeJs_](backend)   |     [_Flutter_](cra_frontend)|[_NodeJs_](backend)  [_Flutter_](cra_frontend)  | |Pin me in the discussion for those who want editor permission|
 
 
 
