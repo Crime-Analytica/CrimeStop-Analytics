@@ -44,7 +44,7 @@ git checkout -b feature/my-feature
 
 ```
 
-2. Make your changes and ensure they meet the project's coding standards and guidelines.
+2. Make your changes and ensure they meet the project's [coding standards and guidelines](https://github.com/GarretTomlin/CrimeStop-Analytics/wiki/Coding-Standards).
 
 3. Commit your changes and push the branch to the repository:
 
