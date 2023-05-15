@@ -21,16 +21,16 @@ We have a few contributor roles available in this project:
 - **Backend Developer**: Responsible for developing and maintaining the backend logic and API endpoints.
 - **Frontend Developer**: Responsible for developing and maintaining the user interface and frontend components.
 - **Full-stack Developer**: Responsible for both backend and frontend development tasks.
+- **UX/UI Designer**: Responsible for designing the user experience (UX) and user interface (UI) of the application.
 
 ## Setting up the Local Environment(After choosing role)
 
 
 
-|    Backend Developer  | Frontend Developer     | Full-stack Developer |
-| :-------------------- | :--------------------: | --------------------: |
-| [_Python_](VisaVault) |     [_Next js_](web)          |      [_Python_](VisaVault)  [_Next js_](web)   |
-| [_NodeJs_](backend)   |     [_Flutter_](cra_frontend)    |        [_NodeJs_](backend)  [_Flutter_](cra_frontend)  |
-
+| Backend Developer   | Frontend Developer  | Full-stack Developer | UX/UI Designer                              |
+| :------------------ | :-----------------: | ------------------- | ------------------------------------------- |
+| [Python](VisaVault) | [Next.js](web)      | [Python](VisaVault)<br>[Next.js](web)   | [View Design](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=0%3A1&t=oIXZ2JmcphM7bhbg-1)<br>[Style Guide](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=10-7&t=WszJX7dyBMenoBpR-0) |
+| [Node.js](backend)  | [Flutter](cra_frontend) | [Node.js](backend)<br>[Flutter](cra_frontend)  | Pin me in the discussion for editor permission |
 
 
 
@@ -44,7 +44,7 @@ git checkout -b feature/my-feature
 
 ```
 
-2. Make your changes and ensure they meet the project's coding standards and guidelines.
+2. Make your changes and ensure they meet the project's [coding standards and guidelines](https://github.com/GarretTomlin/CrimeStop-Analytics/wiki/Coding-Standards).
 
 3. Commit your changes and push the branch to the repository:
 

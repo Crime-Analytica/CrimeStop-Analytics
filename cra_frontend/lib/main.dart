@@ -29,10 +29,10 @@ class MyDashboard extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Dashboard"),
         ),
-        body: Center(
+        body: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[TestWidgets()],
+            children: <Widget>[TestWidgets()],
           ),
           
         ));
@@ -44,6 +44,6 @@ class TestWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('hello Garret');
+    return const Text('hello Garret 1');
   }
 }
