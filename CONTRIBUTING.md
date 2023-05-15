@@ -1,5 +1,6 @@
-  <a href=""><p align="center">
+<a href=""><p align="center">
 <img height=100 src="https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/docs/logo.png"/>
+
 <p align="center">
   <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
@@ -10,9 +11,7 @@
 
 </p>
 
-## Thank you for your interest in contributing to CrimeStop-Analytics! We welcome contributions from the community to help  build a better solution  to combat crime and enhance public safety.
-
-
+## Thank you for your interest in contributing to CrimeStop-Analytics! We welcome contributions from the community to help build a better solution to combat crime and enhance public safety.
 
 ## Contributor Roles
 
@@ -25,18 +24,14 @@ We have a few contributor roles available in this project:
 
 ## Setting up the Local Environment(After choosing role)
 
-
-
-| Backend Developer   | Frontend Developer  | Full-stack Developer | UX/UI Designer                              |
-| :------------------ | :-----------------: | ------------------- | ------------------------------------------- |
-| [Python](VisaVault) | [Next.js](web)      | [Python](VisaVault)<br>[Next.js](web)   | [View Design](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=0%3A1&t=oIXZ2JmcphM7bhbg-1)<br>[Style Guide](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=10-7&t=WszJX7dyBMenoBpR-0) |
-| [Node.js](backend)  | [Flutter](cra_frontend) | [Node.js](backend)<br>[Flutter](cra_frontend)  | Pin me in the discussion for editor permission |
-
-
+| Backend Developer   |   Frontend Developer    | Full-stack Developer                          | UX/UI Designer                                                                                                                                                                                                                                          |
+| :------------------ | :---------------------: | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Python](VisaVault) |     [Next.js](web)      | [Python](VisaVault)<br>[Next.js](web)         | [View Design](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=0%3A1&t=oIXZ2JmcphM7bhbg-1)<br>[Style Guide](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=10-7&t=WszJX7dyBMenoBpR-0) |
+| [Node.js](backend)  | [Flutter](cra_frontend) | [Node.js](backend)<br>[Flutter](cra_frontend) | Pin me in the discussion for editor permission                                                                                                                                                                                                          |
 
 # Contributing Guidelines
 
- 1. Before you start working on a new feature or bug fix, create a new branch from the staging branch:
+1.  Before you start working on a new feature or bug fix, create a new branch from the staging branch:
 
 ```bash
 git checkout staging
@@ -54,9 +49,10 @@ git commit -m "Add my feature"
 git push origin feature/my-feature
 
 ```
+
 4. Open a pull request on GitHub, targeting the staging branch.
- 
- 5. Your changes will be reviewed by the project maintainers, and any necessary feedback or changes will be discussed in the pull request.
+
+5. Your changes will be reviewed by the project maintainers, and any necessary feedback or changes will be discussed in the pull request.
 
 # Contributor Form
 
