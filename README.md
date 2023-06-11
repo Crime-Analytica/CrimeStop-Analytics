@@ -10,7 +10,7 @@
 ---
 
 ## About The Project
-CrimeStop Analytics is a non-profit project aimed at providing innovative solutions to the ongoing problem of crime and public safety in Jamaica. Like many other countries, Jamaica is facing a rising crime rate that has left citizens feeling helpless. Traditional methods of identifying and tracking criminals have limitations and we believe that by using image recognition and other cutting-edge technologies, this project can make a meaningful impact on public safety.
+CrimeStop Analytics is a tech start up that aimed at providing innovative solutions to the ongoing problem of crime and public safety in Jamaica. Like many other countries, Jamaica is facing a rising crime rate that has left citizens feeling helpless. Traditional methods of identifying and tracking criminals have limitations and we believe that by using image recognition and other cutting-edge technologies, this project can make a meaningful impact on public safety.
 
 ## Current Features
 
