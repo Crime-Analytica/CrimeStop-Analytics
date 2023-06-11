@@ -19,21 +19,26 @@ import dotenv from 'dotenv'
 import forumRouter from './src/routers/forumRouter'
 import stayAlertRouter from './src/routers/stayAlertRouter'
 import adminRouter from './src/routers/adminRouter'
-import { initializeSocket } from './src/services/socket'
+// import { initializeSocket } from './src/services/socket'
 import { logInfo } from './src/services/loggerManager'
 import limiter from './src/utils/rateLimiting'
 import { createCluster } from './src/services/cluster'
+import { Server } from 'socket.io'
 
 dotenv.config({ path: '.env' })
 
 const app = express()
-const socket = http.createServer(app)
+const server = http.createServer(app)
+export const io = new Server(server, {
+  cors: {
+    origin: '*'
+  }
+})
 
 const port = Number(process.env.PORT) ?? 4000
 app.set('port', isNaN(port) || port === 0 ? 8080 : port)
 
-const server = process.env.server ?? 'GateWay'
-
+// Session
 app.use(
   session({
     secret: 'keyboard cat',
@@ -41,8 +46,6 @@ app.use(
     saveUninitialized: true
   })
 )
-
-initializeSocket(socket)
 
 // Passport
 initialize(passport)
@@ -60,11 +63,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // Healthcheck
 app.get('/health', healthCheck)
-
-// load balancer
-app.get('/', (req, res, next) => {
-  res.send(`This Request redirect to the server ${server}`)
-})
 
 // xss-clean middleware to all routes
 app.use(xss())
@@ -93,7 +91,7 @@ app.use(errorHandler)
 const startServer = async () => {
   prisma.$connect()
     .then(() => {
-      socket.listen(port, () => {
+      server.listen(port, () => {
         void logInfo(`Server ready at http://localhost:${port}`)
       })
     })

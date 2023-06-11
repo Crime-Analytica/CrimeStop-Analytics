@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { createForum } from '../../helpers/forumHelpers'
-import { addForumSchema } from '../../validations/schemas/forumSchema'
+import { addForumSchema } from '../../validations'
 
 const addForum = async (req: Request, res: Response) => {
   try {

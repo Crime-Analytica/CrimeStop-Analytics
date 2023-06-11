@@ -1,8 +1,9 @@
 import { Request, Response } from 'express'
 import { createDistressSignal } from '../../helpers/distressSignalHelpers'
+import { PanicSchema } from '../../validations'
 
 const sendDistressSignal = async (req: Request, res: Response) => {
-  const { latitude, longitude, message, civilianId } = req.body
+  const { latitude, longitude, message, civilianId } = PanicSchema.parse(req.body)
   try {
     const newDistressSignal = await createDistressSignal(latitude, longitude, message, civilianId)
     res.status(201).send(newDistressSignal)

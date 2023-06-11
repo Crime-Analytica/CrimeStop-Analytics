@@ -1,5 +1,5 @@
 import prisma from '../../utils/prismaInstance'
-import { io } from '../../services/socket'
+import { io } from '../../../app'
 import createPost from '../../helpers/postHelpers'
 
 io.on('connection', (socket) => {

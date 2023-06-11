@@ -2,7 +2,7 @@ interface user {
   id: string
   email: string
   username?: string
-  role: string | undefined
+  role: string
   badgeNumber?: string
   rank?: string
 }

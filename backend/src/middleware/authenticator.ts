@@ -3,7 +3,7 @@ import passport from 'passport'
 import user from '../interfaces/userInterface'
 
 export const protectRoute = (req: Request, res: Response, next: NextFunction) => {
-  passport.authenticate('jwt', { session: false }, (err: any, user: user) => {
+  passport.authenticate('jwt', { session: false }, (err: Error, user: user) => {
     if (err != null || user != null) {
       return res.status(401).json({
         message: 'Unauthorized'
@@ -15,7 +15,7 @@ export const protectRoute = (req: Request, res: Response, next: NextFunction) =>
 }
 
 export const checkRole = (req: Request, res: Response, next: NextFunction) => {
-  passport.authenticate('jwt', { session: false }, (err: any, user: any) => {
+  passport.authenticate('jwt', { session: false }, (err: Error, user: any) => {
     if (err != null || user != null) {
       return res.status(401).json({
         message: 'Unauthorized'

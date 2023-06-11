@@ -1,9 +1,10 @@
 import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import { findUserByEmail, generateToken } from '../../helpers/userHelpers'
+import { signInSchema } from '../../validations'
 
 const signIn = async (req: Request, res: Response) => {
-  const { email, password } = req.body
+  const { email, password } = signInSchema.parse(req.body)
 
   try {
     const user = await findUserByEmail(email)

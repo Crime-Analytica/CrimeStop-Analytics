@@ -5,9 +5,6 @@
 </p>
   <p align="center">
   <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
-<img src="https://img.shields.io/github/license/garrettomlin/crimeStop-Analytics?color=AA0000&logoColor=5B5B5B">
-<img src="https://img.shields.io/github/contributors/garrettomlin/CrimeStop-Analytics?color=AA0000">
-
 </p>
 
 ---
@@ -45,42 +42,7 @@ CrimeStop Analytics is a non-profit project aimed at providing innovative soluti
 | [visaVault](VisaVault)     |   Python facial recognition API|
 
 
-## Contributions
-
-CrimeStop-analytics is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
+## Getting Started
 
 Please read [CONTRIBUTING.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/staging/CONTRIBUTING.md) for details on this project.
 
-## CrimeStop Analytics Desktop
-
-A desktop app built with [Flutter](https://flutter.dev/multi-platform/desktop) is available for Windows, Mac, and Linux(_For Law Enforcement personnel_).
-
-There are different ways to get the Flutter desktop app:
-
-
-## Code of Conduct
-
-Please read [CODE_OF_CONDUCT.md](https://github.com/GarretTomlin/CrimeStop-Analytics/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct.
-
-## Support This Project
-<a href="https://www.buymeacoffee.com/crimeStop"><img src="https://img.buymeacoffee.com/button-api/?text=Support CrimeStop Analytics&emoji=&slug=crimeStop&button_colour=dc0909&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" /></a>
-
-
-## License
-```
-   Copyright (C) 2023 Garret Tomlin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-```
-  

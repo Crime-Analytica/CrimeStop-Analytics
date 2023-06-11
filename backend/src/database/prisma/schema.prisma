@@ -90,7 +90,6 @@ model Forum {
   ownerId     String
   posts       Post[]  @relation("ForumPosts")
 }
-
 model Post {
   id          Int     @id @default(autoincrement())
   content     String

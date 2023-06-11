@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-const handleError = (error: any, req: Request, res: Response) => {
+const handleError = (error: Error, req: Request, res: Response) => {
   const errorResponse = {
     message: error.message,
     status: 400

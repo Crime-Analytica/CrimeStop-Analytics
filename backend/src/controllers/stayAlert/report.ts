@@ -1,8 +1,9 @@
 import { Request, Response } from 'express'
 import { createReport } from '../../helpers/reportHelpers'
+import { sendReportSchema } from '../../validations'
 
 const sendReport = async (req: Request, res: Response) => {
-  const { reportType, message, civilianId } = req.body
+  const { reportType, message, civilianId } = sendReportSchema.parse(req.body)
 
   try {
     const newReport = await createReport(reportType, message, civilianId)
