@@ -76,5 +76,11 @@
     "typescript": "^4.9.4",
     "vitest": "^0.31.0",
     "vitest-mock-extended": "^1.1.3"
+  },
+  "opencv4nodejs": {
+    "disableAutoBuild": 1,
+    "opencvIncludeDir": "C:\\tools\\opencv\\build\\include",
+    "opencvLibDir": "C:\\tools\\opencv\\build\\x64\\vc14\\lib",
+    "opencvBinDir": "C:\\tools\\opencv\\build\\x64\\vc14\\bin"
   }
 }
