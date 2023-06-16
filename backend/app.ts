@@ -2,7 +2,6 @@ import express, { json } from 'express'
 import session from 'express-session'
 import passport from 'passport'
 import bodyParser from 'body-parser'
-import http from 'http'
 import xss from 'xss-clean'
 import helmet from 'helmet'
 import logger from 'morgan'
@@ -19,22 +18,13 @@ import dotenv from 'dotenv'
 import forumRouter from './src/routers/forumRouter'
 import stayAlertRouter from './src/routers/stayAlertRouter'
 import adminRouter from './src/routers/adminRouter'
-// import { initializeSocket } from './src/services/socket'
+import visaVault from './src/routers/visaVault'
 import { logInfo } from './src/services/loggerManager'
 import limiter from './src/utils/rateLimiting'
 import { createCluster } from './src/services/cluster'
-import { Server } from 'socket.io'
 
 dotenv.config({ path: '.env' })
-
 const app = express()
-const server = http.createServer(app)
-export const io = new Server(server, {
-  cors: {
-    origin: '*'
-  }
-})
-
 const port = Number(process.env.PORT) ?? 4000
 app.set('port', isNaN(port) || port === 0 ? 8080 : port)
 
@@ -79,6 +69,7 @@ app.use('/api', authRouter)
 app.use('/api', crimeStatsRouter)
 app.use('/api', forumRouter)
 app.use('/api', stayAlertRouter)
+app.use('/api', visaVault)
 
 // Catch 404 and forward to error handler
 app.use((req, res) => {
@@ -91,7 +82,7 @@ app.use(errorHandler)
 const startServer = async () => {
   prisma.$connect()
     .then(() => {
-      server.listen(port, () => {
+      app.listen(port, () => {
         void logInfo(`Server ready at http://localhost:${port}`)
       })
     })

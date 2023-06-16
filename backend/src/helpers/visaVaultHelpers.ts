@@ -1,4 +1,4 @@
-import cv, { Mat, Rect, FaceRecognizer } from 'opencv4nodejs-prebuilt'
+import cv, { Mat, Rect, FaceRecognizer } from 'opencv4nodejs-prebuilt-install'
 import axios from 'axios'
 
 export const loadImageFromCloudinary = async (cloudinaryUrl: string): Promise<Mat> => {
