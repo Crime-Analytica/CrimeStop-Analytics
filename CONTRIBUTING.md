@@ -3,20 +3,13 @@
 <p align="center">
   <strong>A solution to the ongoing problem of crime and public safety</strong>
 </p>
-  <p align="center">
-  <a href="https://discord.gg/QCGtwgnj"><img alt="Join us on Discord" src="https://img.shields.io/discord/1087405055403106344?color=AA0000&logo=discord&logoColor=white"></a>
-<img src="https://img.shields.io/github/license/garrettomlin/crimeStop-Analytics?color=AA0000&logoColor=5B5B5B">
-<img src="https://img.shields.io/github/contributors/garrettomlin/CrimeStop-Analytics?color=AA0000">
+ 
 
-</p>
-
-## Thank you for your interest in contributing to CrimeStop-Analytics! We welcome contributions from the community to help  build a better solution  to combat crime and enhance public safety.
+## How Do you get Started ?
 
 
 
-## Contributor Roles
-
-We have a few contributor roles available in this project:
+## Search for your  Roles
 
 - **Backend Developer**: Responsible for developing and maintaining the backend logic and API endpoints.
 - **Frontend Developer**: Responsible for developing and maintaining the user interface and frontend components.
@@ -30,11 +23,11 @@ We have a few contributor roles available in this project:
 | Backend Developer   | Frontend Developer  | Full-stack Developer | UX/UI Designer                              |
 | :------------------ | :-----------------: | ------------------- | ------------------------------------------- |
 | [Python](VisaVault) | [Next.js](web)      | [Python](VisaVault)<br>[Next.js](web)   | [View Design](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=0%3A1&t=oIXZ2JmcphM7bhbg-1)<br>[Style Guide](https://www.figma.com/file/Rhi0lFiDccEj7WiaDU0oRl/CRA-DESIGN?type=design&node-id=10-7&t=WszJX7dyBMenoBpR-0) |
-| [Node.js](backend)  | [Flutter](cra_frontend) | [Node.js](backend)<br>[Flutter](cra_frontend)  | Pin me in the discussion for editor permission |
+| [Node.js](backend)  | [Flutter](cra_frontend) | [Node.js](backend)<br>[Flutter](cra_frontend)  | Editor permission will be given to UX/UI designers|
 
 
 
-# Contributing Guidelines
+# Guidelines
 
  1. Before you start working on a new feature or bug fix, create a new branch from the staging branch:
 
@@ -56,10 +49,6 @@ git push origin feature/my-feature
 ```
 4. Open a pull request on GitHub, targeting the staging branch.
  
- 5. Your changes will be reviewed by the project maintainers, and any necessary feedback or changes will be discussed in the pull request.
+5. Your changes will be reviewed by the  [CTO](https://github.com/GarretTomlin), and any necessary feedback or changes will be discussed in the pull request.
 
-# Contributor Form
 
-### Before making a contribution, we require all contributors to sign a [contributor form](https://gist.github.com/GarretTomlin/96d2c4094201184c2022f0a84bfc4ffc). Please fill out the Contributor Form before starting your work.
-
-### Thank you for your contribution and helping us improve CrimeStop-Analytics!
