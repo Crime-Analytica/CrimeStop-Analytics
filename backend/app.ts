@@ -6,7 +6,7 @@ import xss from 'xss-clean'
 import helmet from 'helmet'
 import logger from 'morgan'
 import swaggerUi from 'swagger-ui-express'
-import { swaggerDocument } from './src/configs/swagger/swagger'
+import { swaggerSpec } from './src/configs/swagger/swagger'
 import cors from 'cors'
 import healthCheck from './src/controllers/healthCheckController'
 import errorHandler from './src/middleware/errorHandler'
@@ -21,7 +21,7 @@ import adminRouter from './src/routers/adminRouter'
 import visaVault from './src/routers/visaVault'
 import { logInfo } from './src/services/loggerManager'
 import limiter from './src/utils/rateLimiting'
-import { createCluster } from './src/services/cluster'
+// import { createCluster } from './src/services/cluster'
 
 dotenv.config({ path: '.env' })
 const app = express()
@@ -49,7 +49,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // api documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // Healthcheck
 app.get('/health', healthCheck)
@@ -93,6 +93,8 @@ const startServer = async () => {
 }
 
 // Use cluster
-createCluster(startServer)
+// createCluster(startServer)
+
+void startServer()
 
 export default app

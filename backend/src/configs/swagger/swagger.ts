@@ -1,5 +1,7 @@
-export const swaggerDocument = {
-  openapi: '3.0.1',
+import swaggerJSDoc from 'swagger-jsdoc'
+
+const swaggerDocument = {
+  openapi: '3.0.0',
   info: {
     version: '1.0.0',
     title: 'CrimeStop-Analytics APIs Document',
@@ -19,42 +21,23 @@ export const swaggerDocument = {
     {
       url: 'http://localhost:80'
     }
-  ],
-  apis: ['../../routers/*.ts'],
-  definitions: {
-    MissingPerson: {
-      type: 'object',
-      properties: {
-        firstName: {
-          type: 'string'
-        },
-        lastName: {
-          type: 'string'
-        },
-        lastSeen: {
-          type: 'string'
-        },
-        age: {
-          type: 'integer'
-        },
-        dateMissing: {
-          type: 'string'
-        },
-        imageUrl: {
-          type: 'string'
-        },
-        civilianId: {
-          type: 'integer'
-        }
-      },
-      required: [
-        'firstName',
-        'lastName',
-        'lastSeen',
-        'age',
-        'dateMissing',
-        'civilianId'
-      ]
-    }
-  }
+  ]
 }
+
+export const swaggerSpec = swaggerJSDoc({
+  swaggerDefinition: swaggerDocument,
+  apis: ['./src/controllers/stayAlert/getCriminals.ts',
+    './src/controllers/crimeStats/crimeStats.ts',
+    './src/controllers/admin/distressSignals.ts',
+    './src/controllers/admin/report.ts',
+    './src/controllers/stayAlert/getMissingPerson.ts',
+    './src/controllers/stayAlert/missingPersons.ts',
+    './src/controllers/stayAlert/panic.ts',
+    './src/controllers/stayAlert/report.ts',
+    './src/controllers/admin/postCriminals.ts',
+    './src/controllers/auth/signIn.ts',
+    './src/controllers/auth/signUp.ts',
+    './src/controllers/visaVault/visaVault.ts'
+
+  ]
+})
