@@ -5,7 +5,7 @@ const swaggerDocument = {
   info: {
     version: '1.0.0',
     title: 'CrimeStop-Analytics APIs Document',
-    description: 'API for Public safety in jamaica',
+    description: 'Revolutionizing the way we fight crime',
     termsOfService: '',
     contact: {
       name: 'Garret Tomlin',
