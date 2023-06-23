@@ -12,3 +12,12 @@ export const addCriminal = async (firstName: string, lastName: string, wantedFor
   })
   return criminal
 }
+
+export const deleteCriminal = async (id: string): Promise<crimnal | null> => {
+  const deletedCriminal = await prisma.criminal.delete({
+    where: {
+      id
+    }
+  })
+  return deletedCriminal
+}

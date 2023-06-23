@@ -4,6 +4,10 @@ import { Request, Response } from 'express'
  * @swagger
  * /api/getcriminals:
  *   get:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - Stay Alert
  *     summary: Get a list of criminals.
  *     parameters:
  *       - in: query
@@ -64,6 +68,7 @@ import { Request, Response } from 'express'
  *           description: The error message.
  *           example: Internal server error
  */
+
 const getCriminals = async (req: Request, res: Response) => {
   const { page } = req.query
   const pageSize = 10

@@ -5,6 +5,8 @@ import crimeStatsScraper from '../../services/crimeStatsScraper'
  * @swagger
  * /api/crime-stats:
  *   get:
+ *     tags:
+ *       - Statistics
  *     summary: Get crime statistics.
  *     responses:
  *       '200':

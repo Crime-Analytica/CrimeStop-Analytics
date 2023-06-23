@@ -24,6 +24,26 @@ export const createUser = async (
   return user
 }
 
+// export const createUserAdmin = async (
+//   firstName: string,
+//   lastName: string,
+//   email: string,
+
+//   password: string
+// ): Promise<Police> => {
+//   const hashedPassword = await bcrypt.hash(password, 10)
+//   const user = await prisma.police.create({
+//     data: {
+//       firstName,
+//       lastName,
+//       email,
+//       password: hashedPassword,
+//       createdAt: new Date().toISOString()
+//     }
+//   })
+//   return user
+// }
+
 export const findUserByEmail = async (
   email: string
 ): Promise<Civilian | Police | undefined> => {

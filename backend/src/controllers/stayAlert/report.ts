@@ -1,11 +1,14 @@
 import { Request, Response } from 'express'
 import { createReport } from '../../helpers/reportHelpers'
 import { sendReportSchema } from '../../validations'
-
 /**
  * @swagger
  * /api/reports:
  *   post:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - Stay Alert
  *     summary: Send a report.
  *     requestBody:
  *       required: true
@@ -58,6 +61,7 @@ import { sendReportSchema } from '../../validations'
  *           description: The ID of the civilian sending the report.
  *           example: ABC123
  */
+
 const sendReport = async (req: Request, res: Response) => {
   const { reportType, message, civilianId } = sendReportSchema.parse(req.body)
 

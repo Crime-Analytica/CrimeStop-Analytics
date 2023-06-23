@@ -1,3 +1,4 @@
+import { DeleteReport } from '../../helpers/reportHelpers'
 import prisma from '../../utils/prismaInstance'
 import { Request, Response } from 'express'
 
@@ -5,6 +6,8 @@ import { Request, Response } from 'express'
  * @swagger
  * /api/get-reports:
  *   get:
+ *     tags:
+ *       - Admin - Law Enforcement
  *     summary: Retrieve reports.
  *     parameters:
  *       - in: query
@@ -86,4 +89,47 @@ const getReports = async (req: Request, res: Response) => {
   }
 }
 
-export default getReports
+/**
+ * @swagger
+ * /api/delete-report/{id}:
+ *   put:
+ *     tags:
+ *       - Admin - Law Enforcement
+ *     summary: Delete a report by ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: The ID of the report to be deleted.
+ *     responses:
+ *       '204':
+ *         description: No Content
+ *       '500':
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Failed to delete report
+ */
+
+const deleteReport = async (req: Request, res: Response) => {
+  const { id } = req.params
+
+  try {
+    await DeleteReport(id)
+
+    res.sendStatus(204)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send({ error: 'Failed to delete report' })
+  } finally {
+    await prisma.$disconnect()
+  }
+}
+export { getReports, deleteReport }

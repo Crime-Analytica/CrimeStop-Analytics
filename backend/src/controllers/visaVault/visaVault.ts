@@ -8,6 +8,8 @@ import loadTrainedModel from './trainModel'
  * @swagger
  * /api/visavault:
  *   post:
+ *     tags:
+ *       - Facial Recognition
  *     summary: Perform facial recognition.
  *     requestBody:
  *       required: true

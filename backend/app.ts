@@ -6,7 +6,7 @@ import xss from 'xss-clean'
 import helmet from 'helmet'
 import logger from 'morgan'
 import swaggerUi from 'swagger-ui-express'
-import { swaggerSpec } from './src/configs/swagger/swagger'
+import { swaggerSpec, swaggerUiOptions } from './src/configs/swagger/swagger'
 import cors from 'cors'
 import healthCheck from './src/controllers/healthCheckController'
 import errorHandler from './src/middleware/errorHandler'
@@ -49,7 +49,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // api documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions))
 
 // Healthcheck
 app.get('/health', healthCheck)

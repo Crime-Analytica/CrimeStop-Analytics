@@ -17,3 +17,9 @@ export const missingPersons = async (firstName: string, lastName: string, age: n
   })
   return missingPerson
 }
+
+export const deleteMissing = async (id: string): Promise<void> => {
+  await prisma.missingPerson.delete({
+    where: { id }
+  })
+}

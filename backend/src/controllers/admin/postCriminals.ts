@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { addCriminal } from '../../helpers/criminalHelpers'
+import { addCriminal, deleteCriminal } from '../../helpers/criminalHelpers'
 import { logError } from '../../services/loggerManager'
 import { criminalSchema } from '../../validations'
 
@@ -7,6 +7,8 @@ import { criminalSchema } from '../../validations'
  * @swagger
  * /api/add-criminals:
  *   post:
+ *     tags:
+ *       - Admin - Law Enforcement
  *     summary: Create a new criminal.
  *     requestBody:
  *       required: true
@@ -90,4 +92,49 @@ const postCriminals = async (req: Request, res: Response) => {
   }
 }
 
-export default postCriminals
+/**
+ * @swagger
+ * /api/criminals/{id}:
+ *   put:
+ *     tags:
+ *       - Admin - Law Enforcement
+ *     summary: Delete a criminal by ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           format: int64
+ *         description: The ID of the criminal to delete.
+ *     responses:
+ *       '204':
+ *         description: No Content
+ *       '404':
+ *         description: Not Found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Criminal not found
+ */
+
+const deleteCriminals = async (req: Request, res: Response) => {
+  const id = (req.params.id)
+  try {
+    const deletedCriminal = await deleteCriminal(id)
+    if (deletedCriminal !== undefined && deletedCriminal !== null) {
+      res.sendStatus(204)
+    } else {
+      res.status(404).send({ error: 'Criminal not found' })
+    }
+  } catch (err: any) {
+    void logError(err)
+    res.status(500).send({ error: 'Unable to delete criminal' })
+  }
+}
+
+export { postCriminals, deleteCriminals }

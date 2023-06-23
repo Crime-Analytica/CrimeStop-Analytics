@@ -3,8 +3,8 @@ import { loadImageFromCloudinary } from '../../helpers/visaVaultHelpers'
 
 const loadTrainedModel = async (): Promise<FaceRecognizer> => {
   const cloudinaryUrls = [
-    'YOUR_CLOUDINARY_IMAGE_URL_1',
-    'YOUR_CLOUDINARY_IMAGE_URL_2'
+    'https://res.cloudinary.com/dwhs4luwi/image/upload/v1682348348/wanted/jljr66rdmektnfdhpuhb.jpg',
+    'https://res.cloudinary.com/dwhs4luwi/image/upload/v1681824039/wanted/jzsde6dsek2wapjrngsr.jpg'
   ]
   const labels = [0, 1]
 

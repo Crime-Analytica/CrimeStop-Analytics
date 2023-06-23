@@ -1,10 +1,13 @@
 import { Request, Response } from 'express'
 import prisma from '../../utils/prismaInstance'
+import { deleteSignal } from '../../helpers/distressSignalHelpers'
 
 /**
  * @swagger
  * /api/get-distressSignals:
  *   get:
+ *     tags:
+ *       - Admin - Law Enforcement
  *     summary: Retrieve distress signals.
  *     parameters:
  *       - in: query
@@ -92,4 +95,47 @@ const getDistressSignals = async (req: Request, res: Response) => {
   }
 }
 
-export default getDistressSignals
+/**
+ * @swagger
+ * /api/delete-distress-signal/{id}:
+ *   put:
+ *     tags:
+ *       - Admin - Law Enforcement
+ *     summary: Delete a distress signal by ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: The ID of the distress signal to be deleted.
+ *     responses:
+ *       '204':
+ *         description: No Content
+ *       '500':
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Failed to delete distress signal
+ */
+
+const deleteDistressSignal = async (req: Request, res: Response) => {
+  const { id } = req.params
+
+  try {
+    await deleteSignal(id)
+
+    res.sendStatus(204)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send({ error: 'Failed to delete distress signal' })
+  } finally {
+    await prisma.$disconnect()
+  }
+}
+export { getDistressSignals, deleteDistressSignal }

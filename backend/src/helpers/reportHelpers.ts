@@ -14,3 +14,9 @@ export const createReport = async (reportType: string, message: string, civilian
   })
   return report
 }
+
+export const DeleteReport = async (id: string): Promise<void> => {
+  await prisma.distressSignal.delete({
+    where: { id }
+  })
+}

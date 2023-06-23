@@ -1,10 +1,11 @@
 import { Router } from 'express'
 import signIn from '../controllers/auth/signIn'
-import signUp from '../controllers/auth/signUp'
+import { signUpCivilian } from '../controllers/auth/signUp'
 
 const router = Router()
 
 router.post('/sign-in', signIn)
-router.post('/sign-up', signUp)
+// router.post('/sign-up-Law', signUpLawEnforment)
+router.post('/sign-up-Civilian', signUpCivilian)
 
 export default router

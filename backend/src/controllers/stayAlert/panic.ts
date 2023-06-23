@@ -1,11 +1,14 @@
 import { Request, Response } from 'express'
 import { createDistressSignal } from '../../helpers/distressSignalHelpers'
 import { PanicSchema } from '../../validations'
-
 /**
  * @swagger
  * /api/distress-signals:
  *   post:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - Stay Alert
  *     summary: Send a distress signal.
  *     requestBody:
  *       required: true

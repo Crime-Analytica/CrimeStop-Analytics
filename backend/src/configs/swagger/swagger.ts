@@ -4,13 +4,20 @@ const swaggerDocument = {
   openapi: '3.0.0',
   info: {
     version: '1.0.0',
-    title: 'CrimeStop-Analytics APIs Document',
+    title: 'CrimeStop-Analytica APIs Document',
     description: 'Revolutionizing the way we fight crime',
     termsOfService: '',
     contact: {
-      name: 'Garret Tomlin',
+      name: 'Crime Analytica',
       email: 'garrettomlin.code@gmail.com',
       url: 'https://crimestop-analytics.com'
+    },
+    securityDefinitions: {
+      bearerAuth: {
+        type: 'apiKey',
+        name: 'Authorization',
+        in: 'header'
+      }
     },
     license: {
       name: 'Apache 2.0',
@@ -22,6 +29,12 @@ const swaggerDocument = {
       url: 'http://localhost:80'
     }
   ]
+}
+
+export const swaggerUiOptions = {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'Crime Analytica',
+  customfavIcon: ''
 }
 
 export const swaggerSpec = swaggerJSDoc({

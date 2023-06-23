@@ -15,3 +15,9 @@ export const createDistressSignal = async (latitude: number, longitude: number, 
   })
   return panic
 }
+
+export const deleteSignal = async (id: string): Promise<void> => {
+  await prisma.distressSignal.delete({
+    where: { id }
+  })
+}

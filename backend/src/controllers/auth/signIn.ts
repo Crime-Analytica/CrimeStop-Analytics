@@ -7,6 +7,8 @@ import { signInSchema } from '../../validations'
  * @swagger
  * /api/signin:
  *   post:
+ *     tags:
+ *       - Auth
  *     summary: Sign in user.
  *     requestBody:
  *       required: true
